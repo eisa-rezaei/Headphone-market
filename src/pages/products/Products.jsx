@@ -6,7 +6,7 @@ import { HiOutlineAdjustments } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import "./Products.css";
 import Slider from "../../components/Slider";
-import Slider_2 from "../../components/Slider_2";
+import Slider2 from "../../components/Slider2";
 
 const Products = () => {
   return (
@@ -47,7 +47,7 @@ const Products = () => {
         <h4>best sellings</h4>
         <Link to="/">see all</Link>
       </div>
-      <Slider_2 />
+      <Slider2 />
     </main>
   );
 };
