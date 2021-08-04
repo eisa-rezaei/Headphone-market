@@ -1,0 +1,224 @@
+.products-page {
+  border-radius: 40px;
+  padding: 2.1rem 1rem;
+}
+.header-of-products {
+  width: 100%;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-of-products a {
+  width: 2.3rem;
+  height: 2.3rem;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e0e0e0;
+  color: #000;
+  transition: all 0.3s linear;
+}
+.header-of-products a:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s linear;
+}
+.product-title-search {
+  width: 100%;
+  height: 3.5rem;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+}
+.product-search-box {
+  margin: 20px auto;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.search-box {
+  width: 85%;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+}
+.search-box:hover {
+  border: 1px solid #f2994a;
+}
+.search-box-icon {
+  font-size: 1.1rem;
+  margin: 8px 5px 0px 10px;
+  color: #a1a1a1;
+}
+.adjustment-icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2994a;
+  color: #fff;
+  font-size: 1.5rem;
+  transform: rotate(90deg);
+  cursor: pointer;
+}
+.product-search-box input {
+  width: 100%;
+  height: 100%;
+  font-size: 0.85rem;
+  border: none;
+  outline: none;
+}
+.popular-title-bar {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 0;
+  font-size: 1.2em;
+}
+.popular-title-bar a {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: #a1a1a1;
+}
+.products-container {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.products-container a {
+  width: 240px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background-color: #f1f1ef;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s linear;
+}
+.like-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  color: #f2994a;
+  cursor: pointer;
+  border-radius: 50%;
+  top: 15px;
+  right: 15px;
+  position: absolute;
+  transition: all 0.3s linear;
+}
+.like-icon:hover {
+  background-color: #f2994a;
+  color: #fff;
+  transition: all 0.2s linear;
+}
+.product-description {
+  margin: 10px auto;
+}
+.product-description span {
+  width: 1.5rem;
+  height: 1.5rem;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2994a;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 0.3s linear;
+}
+.product-description span:hover,
+.product-description-list-2 span:hover {
+  transition: all 0.2s linear;
+  box-shadow: 0 5px 15px 1px #f2984a85;
+}
+.product-description h5,
+.product-description-list-2 h5 {
+  margin: 10px 0;
+  color: #646464;
+}
+.headphone-pic {
+  width: 200px;
+  height: 200px;
+  transform: rotate(20deg);
+}
+.products-container-list-2 {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 5px;
+}
+.single-product-list-2 {
+  width: 235px !important;
+  height: 150px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f1f1ef;
+  border-radius: 20px;
+  position: relative;
+  padding: 5px 15px 15px 15px;
+  transition: all 0.3s linear;
+}
+.headphone-pic-list-2 {
+  width: 100px;
+  height: 100px;
+  transform: rotate(20deg);
+  margin-left: 15px;
+}
+.product-description-list-2 {
+  font-size: 0.9rem;
+  margin-top: -20px;
+}
+
+.product-description-list-2 span {
+  width: 1.5rem;
+  height: 1.5rem;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f2994a;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  font-size: 1.2rem;
+}
+.products-container a:hover,
+.single-product-list-2:hover {
+  background-color: #e4eeeee1;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}

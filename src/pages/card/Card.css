@@ -1,0 +1,30 @@
+.card-page {
+  border-radius: 40px;
+  padding: 2.1rem 1rem;
+  min-height: 780px;
+  min-width: 100%;
+}
+.header-of-card {
+  width: 100%;
+  height: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+.header-of-card a {
+  width: 2.3rem;
+  height: 2.3rem;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e0e0e0;
+  color: #000;
+  transition: all 0.3s linear;
+}
+.header-of-card a:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s linear;
+}
