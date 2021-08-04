@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Headphone-market/static/css/main.ab9e3902.chunk.css",
-    "main.js": "/Headphone-market/static/js/main.269776c4.chunk.js",
-    "main.js.map": "/Headphone-market/static/js/main.269776c4.chunk.js.map",
+    "main.css": "/Headphone-market/static/css/main.bca2af36.chunk.css",
+    "main.js": "/Headphone-market/static/js/main.409436f3.chunk.js",
+    "main.js.map": "/Headphone-market/static/js/main.409436f3.chunk.js.map",
     "runtime-main.js": "/Headphone-market/static/js/runtime-main.06f1e5cd.js",
     "runtime-main.js.map": "/Headphone-market/static/js/runtime-main.06f1e5cd.js.map",
-    "static/js/2.cd4f1e36.chunk.js": "/Headphone-market/static/js/2.cd4f1e36.chunk.js",
-    "static/js/2.cd4f1e36.chunk.js.map": "/Headphone-market/static/js/2.cd4f1e36.chunk.js.map",
+    "static/js/2.0ea2192d.chunk.js": "/Headphone-market/static/js/2.0ea2192d.chunk.js",
+    "static/js/2.0ea2192d.chunk.js.map": "/Headphone-market/static/js/2.0ea2192d.chunk.js.map",
     "index.html": "/Headphone-market/index.html",
-    "static/css/main.ab9e3902.chunk.css.map": "/Headphone-market/static/css/main.ab9e3902.chunk.css.map",
-    "static/js/2.cd4f1e36.chunk.js.LICENSE.txt": "/Headphone-market/static/js/2.cd4f1e36.chunk.js.LICENSE.txt",
+    "static/css/main.bca2af36.chunk.css.map": "/Headphone-market/static/css/main.bca2af36.chunk.css.map",
+    "static/js/2.0ea2192d.chunk.js.LICENSE.txt": "/Headphone-market/static/js/2.0ea2192d.chunk.js.LICENSE.txt",
     "static/media/GetStartedPage.css": "/Headphone-market/static/media/getStartedPage_bg.e8443127.jpg",
     "static/media/headphone_1.c7e208bc.png": "/Headphone-market/static/media/headphone_1.c7e208bc.png",
     "static/media/headphone_2.5111fab0.png": "/Headphone-market/static/media/headphone_2.5111fab0.png",
@@ -17,8 +17,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.06f1e5cd.js",
-    "static/js/2.cd4f1e36.chunk.js",
-    "static/css/main.ab9e3902.chunk.css",
-    "static/js/main.269776c4.chunk.js"
+    "static/js/2.0ea2192d.chunk.js",
+    "static/css/main.bca2af36.chunk.css",
+    "static/js/main.409436f3.chunk.js"
   ]
 }
