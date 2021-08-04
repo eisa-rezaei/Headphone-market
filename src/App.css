@@ -14,11 +14,13 @@ a {
 body {
   background: rgb(193, 191, 191);
   background: linear-gradient(
-    45deg,
-    rgba(193, 191, 191, 1) 19%,
-    rgba(255, 233, 214, 1) 53%,
-    rgba(236, 192, 131, 1) 85%
-  );
+      45deg,
+      rgba(193, 191, 191, 1) 19%,
+      rgba(255, 233, 214, 1) 53%,
+      rgba(236, 192, 131, 1) 85%
+    ),
+    no-repeat;
+  background-size: cover;
 }
 .container {
   width: 400px;
@@ -49,12 +51,15 @@ body {
 @media only screen and (max-width: 600px) {
   body {
     background-color: #fff !important;
+    background-image: none;
   }
   .container {
     margin: 0 auto !important;
-    width: min-content;
   }
   .container:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0) !important;
+  }
+  .pages-container {
+    border-radius: unset;
   }
 }
