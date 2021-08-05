@@ -5,9 +5,9 @@ const AddToLikesCtx = createContext({
   //initial  Values
   favorites: [],
   totalfavorites: 0,
-  addFavorite: () => {},
-  removeFavorite: () => {},
-  isIsFavorite: () => {},
+  addFavorite: (favoriteProduct) => {},
+  removeFavorite: (productId) => {},
+  isIsFavorite: (productId) => {},
 });
 
 // ****   component    *****
@@ -27,9 +27,9 @@ const AddToLikesCtxProvider = ({ children }) => {
   //removing
 
   const RemoveFavoriteHandler = (productId) => {
-    return setUserFavorites(
-      userFavorites.filter((product) => product.id !== productId)
-    ); //filter returns new array // true for keeping flase for redding
+    return setUserFavorites((prevUserFavorite) => {
+      return prevUserFavorite.filter((product) => productId !== product.id); //filter returns new array // true for keeping flase for redding
+    });
   };
   //boolean of is favorite or not
   const ItemIsFavoriteHandler = (productId) => {
@@ -55,4 +55,4 @@ export const useFavorites = () => {
   return useContext(AddToLikesCtx);
 };
 
-export { AddToLikesCtx, AddToLikesCtxProvider };
+export { AddToLikesCtxProvider };

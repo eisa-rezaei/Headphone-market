@@ -17,16 +17,14 @@ const Slider = () => {
     },
     slidesPerView: 1.5,
   };
-
   const favoritesContext = useFavorites();
 
   const toggleFavoriteStatusHandler = (id) => {
     const isFavorite = favoritesContext.itemIsFavorite(id);
-    const userFavorite = products.filter((product) => product.id !== id);
     if (isFavorite) {
       favoritesContext.removeFavorite(id);
     } else {
-      favoritesContext.addFavorite({ userFavorite });
+      favoritesContext.addFavorite(id);
     }
   };
   console.log(favoritesContext.favorites);
