@@ -80,12 +80,17 @@
   font-size: 0.8rem;
   margin-bottom: 20px;
 }
+.item-details {
+  height: 4.5rem;
+  word-break: keep-all;
+}
 .item-details h4 {
   margin: 10px 0;
 }
 .item-details p {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   max-height: 2.6rem;
+  overflow-x: scroll;
 }
 .item-details {
   margin-bottom: 10px;
@@ -149,4 +154,20 @@
   cursor: pointer;
   transition: all 0.3s linear;
   box-shadow: 0 5px 20px 2px #4af2ea88;
+}
+@media only screen and (max-width: 600px) {
+  .item-btn-container {
+    width: 95%;
+    position: fixed;
+    bottom: 5px;
+    left: 2.5%;
+  }
+  .item-price-card {
+    width: 95%;
+    position: fixed;
+    bottom: 60px;
+    left: 2.5%;
+    z-index: 10;
+    background-color: #fff;
+  }
 }

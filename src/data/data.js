@@ -25,6 +25,6 @@ export const data = [
     price: 149.99,
     id: 3,
     details:
-      "Lorem ipsum dolor sit adipisicing elit. Iure provident amet consectetur, adipisicing elit. nihil aut animi eos Inventore, nihil aut animi eos impedit. Soluta e dolore, corrupti adipisci a?",
+      "Lorem ipsum dolor sit psum dolor sit adipisicing elit. Iure provident amet consectetur, adipisicing elit. nihil aut animi eos Inventore, nihil aut animi eos impedit. Soluta e psum dolor sit adipisicing elit. Iure provident amet consectetur, adipisicing elit. nihil aut animi eos Inventore, nihil aut animi eos impedit. Soluta e adipisicing elit. Iure provident amet consectetur, adipisicing elit. nihil aut animi eos Inventore, nihil aut animi eos impedit. Soluta e dolore, corrupti adipisci a?",
   },
 ];
