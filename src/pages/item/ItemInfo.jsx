@@ -1,13 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { data } from "../../data/data";
 import { BiMinus, BiPlus, BiShoppingBag } from "react-icons/bi";
 import { FiChevronLeft } from "react-icons/fi";
 import { useParams } from "react-router";
+import { data } from "../../data/data";
 import { Link } from "react-router-dom";
 import "./ItemInfo.css";
-import { AiOutlineHeart } from "react-icons/ai";
+import { RiHeartAddLine } from "react-icons/ri";
+import { useFavorites } from "../../stogre/addToLikes";
+
+// ***** component start ***** //
 
 const ItemInfo = () => {
+  const favoritesContext = useFavorites();
+  const toggleFavoriteStatusHandler = (id) => {
+    const changedId = parseInt(id);
+    const isFavorite = favoritesContext.itemIsFavorite(changedId);
+    const userFavorite = data.filter((product) => product.id === changedId);
+    if (isFavorite) {
+      favoritesContext.removeFavorite(changedId);
+    } else {
+      favoritesContext.addFavorite(userFavorite);
+    }
+    console.log(favoritesContext.favorites);
+  };
   const [product, setProduct] = useState("default droduct");
   const [count, setCount] = useState(0);
   const { id } = useParams();
@@ -32,8 +47,15 @@ const ItemInfo = () => {
       <div className="add-to-card-part">
         <header className="item-title-product">
           <h3>{title}</h3>
-          <span className="item-like-icon">
-            <AiOutlineHeart />
+          <span
+            className={
+              favoritesContext.itemIsFavorite(parseInt(id))
+                ? `item-like-icon active`
+                : `item-like-icon `
+            }
+            onClick={() => toggleFavoriteStatusHandler(id)}
+          >
+            <RiHeartAddLine />
           </span>
         </header>
         <div className="item-stars-container">
@@ -73,5 +95,6 @@ const ItemInfo = () => {
     </main>
   );
 };
+// ***** component end ***** //
 
 export default ItemInfo;

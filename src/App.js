@@ -3,8 +3,9 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import GetStartedPage from "./pages/getStarted/GetStartedPage";
 import ItemInfo from "./pages/item/ItemInfo";
 import Products from "./pages/products/Products";
-import "./App.css";
 import Card from "./pages/card/Card";
+import Favorites from "./pages/favorites/Favorites";
+import "./App.css";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route path="/listofproducts" component={Products} />
               <Route path="/item/:id" children={<ItemInfo />} />
               <Route path="/card" component={Card} />
+              <Route path="/favorites" component={Favorites} />
             </Switch>
           </Router>
         </div>

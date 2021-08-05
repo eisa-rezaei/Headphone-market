@@ -18,7 +18,7 @@ const AddToLikesCtxProvider = ({ children }) => {
   //adding
 
   const AddFavoriteHandler = (favoriteProduct) => {
-    setUserFavorites((prevUserFavorite) => {
+    return setUserFavorites((prevUserFavorite) => {
       //taking the past value as prev
       return prevUserFavorite.concat(favoriteProduct); //concat is like push but return new array
     });

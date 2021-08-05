@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Swiper from "react-id-swiper";
 import { data } from "../data/data";
-import { AiOutlineHeart } from "react-icons/ai";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useFavorites } from "../stogre/addToLikes";
+import { RiHeartAddLine } from "react-icons/ri";
 // import "../pages/products/Products.css";
 
 const Slider = () => {
@@ -17,15 +17,18 @@ const Slider = () => {
     },
     slidesPerView: 1.5,
   };
+
   const favoritesContext = useFavorites();
 
   const toggleFavoriteStatusHandler = (id) => {
-    const isFavorite = favoritesContext.itemIsFavorite(id);
+    const isFavorite = favoritesContext.itemIsFavorite(id); //sending id for the checking favorite
+    const userFavorite = products.filter((product) => product.id === id); //getting that spicific item
     if (isFavorite) {
       favoritesContext.removeFavorite(id);
     } else {
-      favoritesContext.addFavorite(id);
+      favoritesContext.addFavorite(userFavorite);
     }
+    console.log(id);
   };
   console.log(favoritesContext.favorites);
   return (
@@ -39,10 +42,14 @@ const Slider = () => {
                 <img src={img} alt={title} className="headphone-pic" />
               </Link>
               <span
-                className="like-icon"
+                className={
+                  favoritesContext.itemIsFavorite(id)
+                    ? `like-icon active`
+                    : `like-icon `
+                }
                 onClick={() => toggleFavoriteStatusHandler(id)}
               >
-                <AiOutlineHeart />
+                <RiHeartAddLine />
               </span>
               <div className="product-description">
                 <h5>{title}</h5>

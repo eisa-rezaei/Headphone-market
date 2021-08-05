@@ -3,6 +3,7 @@ import { IoGridOutline } from "react-icons/io5";
 import { BiShoppingBag } from "react-icons/bi";
 import { RiSearch2Line } from "react-icons/ri";
 import { HiOutlineAdjustments } from "react-icons/hi";
+import { AiOutlineHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./Products.css";
 import Slider from "../../components/Slider";
@@ -20,7 +21,12 @@ const Products = () => {
         </Link>
       </header>
       <div className="product-title-search">
-        <h3>discover your best</h3>
+        <span className="discover-bar">
+          <h3>discover your best</h3>
+          <Link to="/favorites">
+            <AiOutlineHeart />
+          </Link>
+        </span>
         <div className="product-search-box">
           <span className="search-box">
             <span className="search-box-icon">

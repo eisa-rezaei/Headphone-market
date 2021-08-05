@@ -11,10 +11,11 @@
   justify-content: space-between;
   padding-right: 1rem;
 }
+.discover-bar a,
 .header-of-products a {
-  width: 2.3rem;
-  height: 2.3rem;
-  font-size: 1.3rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 1.1rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -23,9 +24,18 @@
   color: #000;
   transition: all 0.3s linear;
 }
+
 .header-of-products a:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.2s linear;
+}
+.discover-bar {
+  height: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
 }
 .product-title-search {
   width: 100%;
@@ -64,8 +74,8 @@
   color: #a1a1a1;
 }
 .adjustment-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 2.1rem;
+  height: 2.1rem;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -142,6 +152,10 @@
   color: #fff;
   transition: all 0.2s linear;
 }
+.active {
+  background-color: #f2994a;
+  color: #fff;
+}
 .product-description {
   margin: 10px auto;
 }
@@ -162,8 +176,10 @@
   transition: all 0.3s linear;
 }
 .product-description a:hover,
+.discover-bar a:hover,
 .product-description span:hover,
 .product-description-list-2 span:hover,
+.like-icon:hover,
 .adjustment-icon:hover {
   transition: all 0.2s linear;
   box-shadow: 0 5px 15px 1px #f2984a85;
