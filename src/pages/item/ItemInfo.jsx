@@ -93,13 +93,13 @@ const ItemInfo = () => {
           </div>
         </Swiper>
         <div className="item-change-color">
-          <Link className="color-link1" onClick={() => colors.colorIsBlack()}>
+          <Link className="color-link1" onClick={colors.colorIsBlack}>
             <p />
           </Link>
-          <Link className="color-link2" onClick={() => colors.colorIsGold()}>
+          <Link className="color-link2" onClick={colors.colorIsGold}>
             <p />
           </Link>
-          <Link className="color-link3" onClick={() => colors.colorIsBlue()}>
+          <Link className="color-link3" onClick={colors.colorIsBlue}>
             <p />
           </Link>
         </div>
