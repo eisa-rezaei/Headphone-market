@@ -1,17 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
+// icons
 import { BsArrowRight } from "react-icons/bs";
 import { FiChevronLeft } from "react-icons/fi";
 import { HiOutlineMinusSm } from "react-icons/hi";
-import { Link } from "react-router-dom";
-import { useFavorites } from "../../stogre/addToLikes";
+//local data
+import { useFavorites } from "../../storage/addToLikes";
 import "./Favorites.css";
+
+// ***** component start ***** //
+
 const Favorites = () => {
-  const favoritesContext = useFavorites();
-  const favoriteProduct = favoritesContext.favorites;
-  const RemoveFavoriteHandler = (id) => {
-    const isFavorite = favoritesContext.itemIsFavorite(id);
-    if (isFavorite) {
-      return favoritesContext.removeFavorite(id);
+  const { removeFavorite, itemIsFavorite, favorites } = useFavorites(); // خارج کردن به صورت ابجکت
+  const removeFavoriteHandler = (id) => () => {
+    if (itemIsFavorite(id)) {
+      return removeFavorite(id);
     }
   };
   return (
@@ -24,8 +27,7 @@ const Favorites = () => {
       <section className="favorites-container">
         <h3>your favorites products</h3>
         <ul className="favorite-items-container">
-          {favoriteProduct.map((product) => {
-            const { title, img1, price, id } = product;
+          {favorites.map(({ title, img1, price, id }) => {
             return (
               <li className="favorite-single-product" key={id}>
                 <Link to={`/item/${id}`}>
@@ -36,7 +38,7 @@ const Favorites = () => {
                   />
                 </Link>
                 <div className="favorites-product-description">
-                  <span onClick={() => RemoveFavoriteHandler(id)}>
+                  <span onClick={removeFavoriteHandler(id)}>
                     <HiOutlineMinusSm />
                   </span>
                   <h5>{title}</h5>
@@ -53,5 +55,7 @@ const Favorites = () => {
     </main>
   );
 };
+
+// ***** component ends ***** //
 
 export default Favorites;

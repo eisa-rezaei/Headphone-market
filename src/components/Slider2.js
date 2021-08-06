@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Swiper from "react-id-swiper";
 import { data } from "../data/data";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Slider_2 = () => {
-  const [products] = useState(data);
+  // states
   const params = {
     spaceBetween: 20,
     slidesPerView: 1.5,
@@ -14,8 +14,7 @@ const Slider_2 = () => {
   return (
     <section className="products-container-list-2">
       <Swiper {...params}>
-        {products.map((singleProduct) => {
-          const { img1, title, price, id } = singleProduct;
+        {data.map(({ img1, title, price, id }) => {
           return (
             <Link to={`/item/${id}`} key={id}>
               <div className="single-product-list-2">

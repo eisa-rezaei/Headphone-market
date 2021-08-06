@@ -1,6 +1,6 @@
 import { createContext, useState, useContext } from "react";
 
-const ColorChangingCtx = createContext({
+const ColorChangeCtx = createContext({
   isBlue: {},
   isGold: {},
   isBlack: {},
@@ -9,7 +9,7 @@ const ColorChangingCtx = createContext({
   colorIsBlue: () => {},
 });
 
-export const ColorChangingCtxProvider = ({ children }) => {
+export const ColorChangeCtxProvider = ({ children }) => {
   const [colors, setColors] = useState({
     isBlack: true,
     isGold: false,
@@ -48,14 +48,14 @@ export const ColorChangingCtxProvider = ({ children }) => {
   };
 
   return (
-    <ColorChangingCtx.Provider value={context}>
+    <ColorChangeCtx.Provider value={context}>
       {children}
-    </ColorChangingCtx.Provider>
+    </ColorChangeCtx.Provider>
   );
 };
 
-export const useColorChanging = () => {
-  return useContext(ColorChangingCtx);
+export const useColorChange = () => {
+  return useContext(ColorChangeCtx);
 };
 
-export { ColorChangingCtx };
+export { ColorChangeCtx };

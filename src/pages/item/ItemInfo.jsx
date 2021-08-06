@@ -1,35 +1,37 @@
 import React, { useState, useEffect } from "react";
 import Swiper from "react-id-swiper";
+import { Link } from "react-router-dom";
+import { useParams } from "react-router";
+// icons
 import { BiMinus, BiPlus, BiShoppingBag } from "react-icons/bi";
 import { FiChevronLeft } from "react-icons/fi";
-import { useParams } from "react-router";
-import { data } from "../../data/data";
-import { Link } from "react-router-dom";
 import { RiHeartAddLine } from "react-icons/ri";
-import { useFavorites } from "../../stogre/addToLikes";
+// local data
+import { useFavorites } from "../../storage/addToLikes";
+import { useColorChange } from "../../storage/colorChange";
+import { data } from "../../data/data";
 import "./ItemInfo.css";
-import { useColorChanging } from "../../stogre/colorChangeing";
 
 // ***** component start ***** //
 
 const ItemInfo = () => {
-  const colors = useColorChanging();
-
-  const favoritesContext = useFavorites();
-  const toggleFavoriteStatusHandler = (id) => {
+  // constants
+  const { itemIsFavorite, removeFavorite, addFavorite } = useFavorites();
+  const toggleFavoriteStatusHandler = (id) => () => {
     const changedId = parseInt(id);
-    const isFavorite = favoritesContext.itemIsFavorite(changedId);
     const userFavorite = data.filter((product) => product.id === changedId);
-    if (isFavorite) {
-      favoritesContext.removeFavorite(changedId);
+    if (itemIsFavorite(changedId)) {
+      removeFavorite(changedId);
     } else {
-      favoritesContext.addFavorite(userFavorite);
+      addFavorite(userFavorite);
     }
-    console.log(favoritesContext.favorites);
   };
-  const [product, setProduct] = useState("default droduct");
+  // states
+  const [product, setProduct] = useState({});
   const [count, setCount] = useState(0);
+  //params
   const { id } = useParams();
+
   useEffect(() => {
     const newProduct = data.find((product) => product.id === parseInt(id));
     setProduct(newProduct);
@@ -37,14 +39,16 @@ const ItemInfo = () => {
 
   const { title, img1, img2, img3, price, details } = product;
 
-  const imageHandler = () => {
-    if (colors.isBlack) {
+  const { isBlack, isGold, isBlue, colorIsBlack, colorIsBlue, colorIsGold } =
+    useColorChange();
+  const imageSrcHandler = () => {
+    if (isBlack) {
       return img1;
     }
-    if (colors.isGold) {
+    if (isGold) {
       return img2;
     }
-    if (colors.isBlue) {
+    if (isBlue) {
       return img3;
     }
   };
@@ -56,6 +60,9 @@ const ItemInfo = () => {
       type: "progressbar",
     },
   };
+
+  //component
+
   return (
     <main className="item-page">
       <header className="header-of-item">
@@ -70,7 +77,7 @@ const ItemInfo = () => {
         <Swiper {...params}>
           <div className="item-single-pic">
             <img
-              src={imageHandler()}
+              src={imageSrcHandler()}
               alt={title}
               className="headphone-pic-item"
               id="1"
@@ -78,7 +85,7 @@ const ItemInfo = () => {
           </div>
           <div className="item-single-pic">
             <img
-              src={imageHandler()}
+              src={imageSrcHandler()}
               alt={title}
               className="headphone-pic-item"
               id="2"
@@ -86,7 +93,7 @@ const ItemInfo = () => {
           </div>
           <div className="item-single-pic">
             <img
-              src={imageHandler()}
+              src={imageSrcHandler()}
               alt={title}
               className="headphone-pic-item"
               id="3"
@@ -94,14 +101,14 @@ const ItemInfo = () => {
           </div>
         </Swiper>
         <div className="item-change-color">
-          <span className="color-link1" onClick={colors.colorIsBlack}>
-            {colors.isBlack && <p />}
+          <span className="color-link1" onClick={colorIsBlack}>
+            {isBlack && <p />}
           </span>
-          <span className="color-link2" onClick={colors.colorIsGold}>
-            {colors.isGold && <p />}
+          <span className="color-link2" onClick={colorIsGold}>
+            {isGold && <p />}
           </span>
-          <span className="color-link3" onClick={colors.colorIsBlue}>
-            {colors.isBlue && <p />}
+          <span className="color-link3" onClick={colorIsBlue}>
+            {isBlue && <p />}
           </span>
         </div>
       </div>
@@ -110,11 +117,11 @@ const ItemInfo = () => {
           <h3>{title}</h3>
           <span
             className={
-              favoritesContext.itemIsFavorite(parseInt(id))
+              itemIsFavorite(parseInt(id))
                 ? `item-like-icon active`
                 : `item-like-icon `
             }
-            onClick={() => toggleFavoriteStatusHandler(id)}
+            onClick={toggleFavoriteStatusHandler(id)}
           >
             <RiHeartAddLine />
           </span>
@@ -156,6 +163,7 @@ const ItemInfo = () => {
     </main>
   );
 };
+
 // ***** component end ***** //
 
 export default ItemInfo;

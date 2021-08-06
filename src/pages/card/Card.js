@@ -2,6 +2,9 @@ import React from "react";
 import { FiChevronLeft } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import "./Card.css";
+
+// ***** component start ***** //
+
 const Card = () => {
   return (
     <main className="card-page">
@@ -13,5 +16,6 @@ const Card = () => {
     </main>
   );
 };
+// ***** component ends ***** //
 
 export default Card;
