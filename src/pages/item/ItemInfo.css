@@ -11,6 +11,7 @@
   justify-content: space-between;
   padding: 2.1rem 1rem 0rem 1rem;
 }
+
 .header-of-item a {
   width: 2.1rem;
   height: 2.1rem;
@@ -23,6 +24,7 @@
   color: #000;
   transition: all 0.3s linear;
 }
+.item-change-color span:hover,
 .header-of-item a:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.2s linear;
@@ -60,11 +62,19 @@
   justify-content: space-around;
   z-index: 10;
 }
-
-.item-change-color a {
+.item-change-color p {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  margin: 2px auto;
+  border: 2px solid #fff;
+}
+.item-change-color span {
   width: 2.1rem;
   height: 2.1rem;
   border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s linear;
 }
 .item-swiper {
   width: 350px !important;

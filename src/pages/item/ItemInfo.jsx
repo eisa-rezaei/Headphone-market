@@ -53,6 +53,7 @@ const ItemInfo = () => {
     slidesPerView: "auto",
     pagination: {
       el: ".swiper-pagination",
+      type: "progressbar",
     },
   };
   return (
@@ -93,15 +94,15 @@ const ItemInfo = () => {
           </div>
         </Swiper>
         <div className="item-change-color">
-          <Link className="color-link1" onClick={colors.colorIsBlack}>
-            <p />
-          </Link>
-          <Link className="color-link2" onClick={colors.colorIsGold}>
-            <p />
-          </Link>
-          <Link className="color-link3" onClick={colors.colorIsBlue}>
-            <p />
-          </Link>
+          <span className="color-link1" onClick={colors.colorIsBlack}>
+            {colors.isBlack && <p />}
+          </span>
+          <span className="color-link2" onClick={colors.colorIsGold}>
+            {colors.isGold && <p />}
+          </span>
+          <span className="color-link3" onClick={colors.colorIsBlue}>
+            {colors.isBlue && <p />}
+          </span>
         </div>
       </div>
       <div className="add-to-card-part">
