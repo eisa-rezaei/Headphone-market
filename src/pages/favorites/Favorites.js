@@ -22,7 +22,7 @@ const Favorites = () => {
         </Link>
       </header>
       <section className="favorites-container">
-        <h3>your favorites product</h3>
+        <h3>your favorites products</h3>
         <ul className="favorite-items-container">
           {favoriteProduct.map((product) => {
             const { title, img1, price, id } = product;
