@@ -4,16 +4,17 @@
 }
 .header-of-item {
   width: 100%;
-  height: 1.5rem;
+  height: 3.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 2.1rem 1rem 0rem 1rem;
 }
 .header-of-item a {
-  width: 2.3rem;
-  height: 2.3rem;
-  font-size: 1.3rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 1.1rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -31,15 +32,55 @@
   height: 250px;
   margin-top: 20px;
   transform: rotate(20deg);
+  margin: 10px auto;
 }
 
 .item-img-container {
   width: 100%;
+  height: auto;
+  padding-bottom: 1.8rem;
+  color: #000;
+  position: relative;
+}
+.item-single-pic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-change-color {
+  width: 2.3rem;
+  height: 8rem;
+  margin-right: 1rem;
+  position: absolute;
+  top: 70px;
+  right: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
+  z-index: 10;
+}
+
+.item-change-color a {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+}
+.item-swiper {
+  width: 350px !important;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  padding: 2.1rem 1rem 1.8rem 1rem;
+}
+.color-link1 {
+  background-color: rgb(90, 90, 90);
+}
+.color-link2 {
+  background-color: #eccb61;
+}
+.color-link3 {
+  background-color: #7197ad;
 }
 .add-to-card-part {
   background-color: #fff;
@@ -80,12 +121,17 @@
   font-size: 0.8rem;
   margin-bottom: 20px;
 }
+.item-details {
+  height: 4.5rem;
+  word-break: keep-all;
+}
 .item-details h4 {
   margin: 10px 0;
 }
 .item-details p {
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   max-height: 2.6rem;
+  overflow-x: scroll;
 }
 .item-details {
   margin-bottom: 10px;
@@ -149,4 +195,20 @@
   cursor: pointer;
   transition: all 0.3s linear;
   box-shadow: 0 5px 20px 2px #4af2ea88;
+}
+@media only screen and (max-width: 600px) {
+  .item-btn-container {
+    width: 95%;
+    position: fixed;
+    bottom: 5px;
+    left: 2.5%;
+  }
+  .item-price-card {
+    width: 95%;
+    position: fixed;
+    bottom: 60px;
+    left: 2.5%;
+    z-index: 10;
+    background-color: #fff;
+  }
 }

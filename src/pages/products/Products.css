@@ -1,6 +1,6 @@
 .products-page {
   border-radius: 40px;
-  padding: 2.1rem 1rem;
+  padding: 2.1rem 0rem 2.1rem 1rem;
 }
 .header-of-products {
   width: 100%;
@@ -9,11 +9,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-right: 1rem;
 }
+.discover-bar a,
 .header-of-products a {
-  width: 2.3rem;
-  height: 2.3rem;
-  font-size: 1.3rem;
+  width: 2.1rem;
+  height: 2.1rem;
+  font-size: 1.1rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -21,10 +23,32 @@
   border: 1px solid #e0e0e0;
   color: #000;
   transition: all 0.3s linear;
+  position: relative;
+}
+.discover-bar a span {
+  width: 15px;
+  height: 15ox;
+  display: flex;
+  bottom: 5px;
+  right: 5px;
+  justify-content: center;
+  position: absolute;
+  font-size: 0.65rem;
+  background-color: #f2984a;
+  color: #fff;
+  border-radius: 50%;
 }
 .header-of-products a:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   transition: all 0.2s linear;
+}
+.discover-bar {
+  height: 1.2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 1rem;
 }
 .product-title-search {
   width: 100%;
@@ -43,6 +67,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-right: 1rem;
 }
 .search-box {
   width: 85%;
@@ -51,6 +76,7 @@
   flex-direction: row;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
+  overflow: hidden;
 }
 .search-box:hover {
   border: 1px solid #f2994a;
@@ -61,8 +87,8 @@
   color: #a1a1a1;
 }
 .adjustment-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 2.1rem;
+  height: 2.1rem;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -72,9 +98,10 @@
   font-size: 1.5rem;
   transform: rotate(90deg);
   cursor: pointer;
+  transition: all 0.3s linear;
 }
 .product-search-box input {
-  width: 100%;
+  width: 90%;
   height: 100%;
   font-size: 0.85rem;
   border: none;
@@ -89,6 +116,7 @@
   justify-content: space-between;
   margin: 5px 0;
   font-size: 1.2em;
+  padding-right: 1rem;
 }
 .popular-title-bar a {
   font-size: 0.75rem;
@@ -102,8 +130,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  margin-right: -15px;
 }
-.products-container a {
+.single-product {
   width: 240px;
   height: 300px;
   display: flex;
@@ -111,10 +140,15 @@
   align-items: center;
   justify-content: center;
   padding: 25px;
-  background-color: #f1f1ef;
+  background: rgb(200, 217, 217);
+  background: linear-gradient(
+    135deg,
+    rgba(200, 217, 217, 1) 19%,
+    rgba(255, 245, 236, 1) 53%,
+    rgba(236, 205, 163, 1) 85%
+  );
   border-radius: 20px;
   position: relative;
-  transition: all 0.3s linear;
 }
 .like-icon {
   width: 1.5rem;
@@ -136,10 +170,15 @@
   color: #fff;
   transition: all 0.2s linear;
 }
+.active {
+  background-color: #f2994a;
+  color: #fff;
+}
 .product-description {
   margin: 10px auto;
 }
-.product-description span {
+.product-description span,
+.product-description a {
   width: 1.5rem;
   height: 1.5rem;
   bottom: 15px;
@@ -154,8 +193,12 @@
   position: absolute;
   transition: all 0.3s linear;
 }
+.product-description a:hover,
+.discover-bar a:hover,
 .product-description span:hover,
-.product-description-list-2 span:hover {
+.product-description-list-2 span:hover,
+.like-icon:hover,
+.adjustment-icon:hover {
   transition: all 0.2s linear;
   box-shadow: 0 5px 15px 1px #f2984a85;
 }
@@ -179,23 +222,28 @@
   margin-top: 5px;
 }
 .single-product-list-2 {
-  width: 235px !important;
+  width: 246px !important;
   height: 150px;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-around;
-  background-color: #f1f1ef;
+  background: rgb(200, 217, 217);
+  background: linear-gradient(
+    135deg,
+    rgba(200, 217, 217, 1) 19%,
+    rgba(255, 245, 236, 1) 53%,
+    rgba(236, 205, 163, 1) 85%
+  );
   border-radius: 20px;
   position: relative;
   padding: 5px 15px 15px 15px;
-  transition: all 0.3s linear;
 }
 .headphone-pic-list-2 {
   width: 100px;
   height: 100px;
   transform: rotate(20deg);
-  margin-left: 15px;
+  margin-right: 5px;
 }
 .product-description-list-2 {
   font-size: 0.9rem;
@@ -215,12 +263,11 @@
   border-radius: 50%;
   position: absolute;
   font-size: 1.2rem;
+  background-color: #fff;
 }
-.products-container a:hover,
+.single-product:hover,
 .single-product-list-2:hover {
-  background-color: #e4eeeee1;
   cursor: pointer;
-  transition: all 0.2s linear;
 }
 @media only screen and (max-width: 600px) {
 }

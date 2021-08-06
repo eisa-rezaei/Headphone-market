@@ -3,8 +3,10 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import GetStartedPage from "./pages/getStarted/GetStartedPage";
 import ItemInfo from "./pages/item/ItemInfo";
 import Products from "./pages/products/Products";
-import "./App.css";
 import Card from "./pages/card/Card";
+import Favorites from "./pages/favorites/Favorites";
+import "./App.css";
+import { ColorChangingCtxProvider } from "./stogre/colorChangeing";
 
 function App() {
   return (
@@ -15,8 +17,16 @@ function App() {
             <Switch>
               <Route path="/" component={GetStartedPage} exact />
               <Route path="/listofproducts" component={Products} />
-              <Route path="/item/:id" children={<ItemInfo />} />
+              <Route
+                path="/item/:id"
+                children={
+                  <ColorChangingCtxProvider>
+                    <ItemInfo />
+                  </ColorChangingCtxProvider>
+                }
+              />
               <Route path="/card" component={Card} />
+              <Route path="/favorites" component={Favorites} />
             </Switch>
           </Router>
         </div>
