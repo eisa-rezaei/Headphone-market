@@ -1,30 +1,30 @@
 {
   "files": {
-    "main.css": "/Headphone-market/static/css/main.3c533682.chunk.css",
-    "main.js": "/Headphone-market/static/js/main.5d4b2c9b.chunk.js",
-    "main.js.map": "/Headphone-market/static/js/main.5d4b2c9b.chunk.js.map",
+    "main.css": "/Headphone-market/static/css/main.56d3bdfe.chunk.css",
+    "main.js": "/Headphone-market/static/js/main.74f0274e.chunk.js",
+    "main.js.map": "/Headphone-market/static/js/main.74f0274e.chunk.js.map",
     "runtime-main.js": "/Headphone-market/static/js/runtime-main.06f1e5cd.js",
     "runtime-main.js.map": "/Headphone-market/static/js/runtime-main.06f1e5cd.js.map",
     "static/js/2.6c1b8785.chunk.js": "/Headphone-market/static/js/2.6c1b8785.chunk.js",
     "static/js/2.6c1b8785.chunk.js.map": "/Headphone-market/static/js/2.6c1b8785.chunk.js.map",
     "index.html": "/Headphone-market/index.html",
-    "static/css/main.3c533682.chunk.css.map": "/Headphone-market/static/css/main.3c533682.chunk.css.map",
+    "static/css/main.56d3bdfe.chunk.css.map": "/Headphone-market/static/css/main.56d3bdfe.chunk.css.map",
     "static/js/2.6c1b8785.chunk.js.LICENSE.txt": "/Headphone-market/static/js/2.6c1b8785.chunk.js.LICENSE.txt",
-    "static/media/GetStartedPage.css": "/Headphone-market/static/media/getStartedPage_bg.e8443127.jpg",
-    "static/media/headphone_1_1.c7e208bc.png": "/Headphone-market/static/media/headphone_1_1.c7e208bc.png",
-    "static/media/headphone_1_2.11052ddb.png": "/Headphone-market/static/media/headphone_1_2.11052ddb.png",
-    "static/media/headphone_1_3.065c854c.png": "/Headphone-market/static/media/headphone_1_3.065c854c.png",
-    "static/media/headphone_2_1.5111fab0.png": "/Headphone-market/static/media/headphone_2_1.5111fab0.png",
-    "static/media/headphone_2_2.08f85fd4.png": "/Headphone-market/static/media/headphone_2_2.08f85fd4.png",
-    "static/media/headphone_2_3.68326f86.png": "/Headphone-market/static/media/headphone_2_3.68326f86.png",
-    "static/media/headphone_3_1.ae3e5bfe.png": "/Headphone-market/static/media/headphone_3_1.ae3e5bfe.png",
-    "static/media/headphone_3_2.25272582.png": "/Headphone-market/static/media/headphone_3_2.25272582.png",
-    "static/media/headphone_3_3.af3c73b2.png": "/Headphone-market/static/media/headphone_3_3.af3c73b2.png"
+    "static/media/GetStartedPage.css": "/Headphone-market/static/media/getStartedPage_bg.fe7a02dd.jpg",
+    "static/media/headphone_1_1.69b52547.png": "/Headphone-market/static/media/headphone_1_1.69b52547.png",
+    "static/media/headphone_1_2.839accb0.png": "/Headphone-market/static/media/headphone_1_2.839accb0.png",
+    "static/media/headphone_1_3.ba473e67.png": "/Headphone-market/static/media/headphone_1_3.ba473e67.png",
+    "static/media/headphone_2_1.69145d27.png": "/Headphone-market/static/media/headphone_2_1.69145d27.png",
+    "static/media/headphone_2_2.e7ca9626.png": "/Headphone-market/static/media/headphone_2_2.e7ca9626.png",
+    "static/media/headphone_2_3.cb59b11f.png": "/Headphone-market/static/media/headphone_2_3.cb59b11f.png",
+    "static/media/headphone_3_1.7d5449f7.png": "/Headphone-market/static/media/headphone_3_1.7d5449f7.png",
+    "static/media/headphone_3_2.74f810c3.png": "/Headphone-market/static/media/headphone_3_2.74f810c3.png",
+    "static/media/headphone_3_3.fb4086c4.png": "/Headphone-market/static/media/headphone_3_3.fb4086c4.png"
   },
   "entrypoints": [
     "static/js/runtime-main.06f1e5cd.js",
     "static/js/2.6c1b8785.chunk.js",
-    "static/css/main.3c533682.chunk.css",
-    "static/js/main.5d4b2c9b.chunk.js"
+    "static/css/main.56d3bdfe.chunk.css",
+    "static/js/main.74f0274e.chunk.js"
   ]
 }
