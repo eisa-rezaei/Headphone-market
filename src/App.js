@@ -17,9 +17,14 @@ function App() {
             <Switch>
               <Route path="/" component={GetStartedPage} exact />
               <Route path="/listofproducts" component={Products} />
-              <ColorChangingCtxProvider>
-                <Route path="/item/:id" children={<ItemInfo />} />
-              </ColorChangingCtxProvider>
+              <Route
+                path="/item/:id"
+                children={
+                  <ColorChangingCtxProvider>
+                    <ItemInfo />
+                  </ColorChangingCtxProvider>
+                }
+              />
               <Route path="/card" component={Card} />
               <Route path="/favorites" component={Favorites} />
             </Switch>

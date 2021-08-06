@@ -25,11 +25,15 @@ const Favorites = () => {
         <h3>your favorites product</h3>
         <ul className="favorite-items-container">
           {favoriteProduct.map((product) => {
-            const { title, img, price, id } = product;
+            const { title, img1, price, id } = product;
             return (
               <li className="favorite-single-product" key={id}>
                 <Link to={`/item/${id}`}>
-                  <img src={img} alt={title} className="headphone-pic-list-2" />
+                  <img
+                    src={img1}
+                    alt={title}
+                    className="headphone-pic-list-2"
+                  />
                 </Link>
                 <div className="favorites-product-description">
                   <span onClick={() => RemoveFavoriteHandler(id)}>
