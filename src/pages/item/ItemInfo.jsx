@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
+import Swiper from "react-id-swiper";
 import { BiMinus, BiPlus, BiShoppingBag } from "react-icons/bi";
 import { FiChevronLeft } from "react-icons/fi";
 import { useParams } from "react-router";
 import { data } from "../../data/data";
 import { Link } from "react-router-dom";
-import "./ItemInfo.css";
 import { RiHeartAddLine } from "react-icons/ri";
 import { useFavorites } from "../../stogre/addToLikes";
+import "./ItemInfo.css";
+import { useColorChanging } from "../../stogre/colorChangeing";
 
 // ***** component start ***** //
 
 const ItemInfo = () => {
+  const colors = useColorChanging();
+
   const favoritesContext = useFavorites();
   const toggleFavoriteStatusHandler = (id) => {
     const changedId = parseInt(id);
@@ -30,19 +34,75 @@ const ItemInfo = () => {
     const newProduct = data.find((product) => product.id === parseInt(id));
     setProduct(newProduct);
   }, [id]);
-  const { title, img, price, details } = product;
+
+  const { title, img1, img2, img3, price, details } = product;
+
+  const imageHandler = () => {
+    if (colors.isBlack) {
+      return img1;
+    }
+    if (colors.isGold) {
+      return img2;
+    }
+    if (colors.isBlue) {
+      return img3;
+    }
+  };
+
+  const params = {
+    slidesPerView: "auto",
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  };
   return (
     <main className="item-page">
+      <header className="header-of-item">
+        <Link key="1" to="/listofproducts">
+          <FiChevronLeft />
+        </Link>
+        <Link key="2" to="/card">
+          <BiShoppingBag />
+        </Link>
+      </header>
       <div className="item-img-container">
-        <header className="header-of-item">
-          <Link key="1" to="/listofproducts">
-            <FiChevronLeft />
+        <Swiper {...params}>
+          <div className="item-single-pic">
+            <img
+              src={imageHandler()}
+              alt={title}
+              className="headphone-pic-item"
+              id="1"
+            />
+          </div>
+          <div className="item-single-pic">
+            <img
+              src={imageHandler()}
+              alt={title}
+              className="headphone-pic-item"
+              id="2"
+            />
+          </div>
+          <div className="item-single-pic">
+            <img
+              src={imageHandler()}
+              alt={title}
+              className="headphone-pic-item"
+              id="3"
+            />
+          </div>
+        </Swiper>
+        <div className="item-change-color">
+          <Link className="color-link1" onClick={() => colors.colorIsBlack()}>
+            <p />
           </Link>
-          <Link key="2" to="/card">
-            <BiShoppingBag />
+          <Link className="color-link2" onClick={() => colors.colorIsGold()}>
+            <p />
           </Link>
-        </header>
-        <img src={img} alt={title} className="headphone-pic-item" />
+          <Link className="color-link3" onClick={() => colors.colorIsBlue()}>
+            <p />
+          </Link>
+        </div>
       </div>
       <div className="add-to-card-part">
         <header className="item-title-product">

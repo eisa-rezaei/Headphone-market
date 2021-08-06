@@ -15,11 +15,11 @@ const Slider_2 = () => {
     <section className="products-container-list-2">
       <Swiper {...params}>
         {products.map((singleProduct) => {
-          const { img, title, price, id } = singleProduct;
+          const { img1, title, price, id } = singleProduct;
           return (
             <Link to={`/item/${id}`} key={id}>
               <div className="single-product-list-2">
-                <img src={img} alt={title} className="headphone-pic-list-2" />
+                <img src={img1} alt={title} className="headphone-pic-list-2" />
                 <div className="product-description-list-2">
                   <h5>{title}</h5>
                   <h4>{price}</h4>

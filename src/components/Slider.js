@@ -28,18 +28,16 @@ const Slider = () => {
     } else {
       favoritesContext.addFavorite(userFavorite);
     }
-    console.log(id);
   };
-  console.log(favoritesContext.favorites);
   return (
     <section className="products-container">
       <Swiper {...params}>
         {products.map((singleProduct) => {
-          const { img, title, price, id } = singleProduct;
+          const { img1, title, price, id } = singleProduct;
           return (
             <div className="single-product" key={id}>
               <Link to={`/item/${id}`}>
-                <img src={img} alt={title} className="headphone-pic" />
+                <img src={img1} alt={title} className="headphone-pic" />
               </Link>
               <span
                 className={

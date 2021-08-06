@@ -38,7 +38,7 @@ const AddToLikesCtxProvider = ({ children }) => {
 
   const context = {
     favorites: userFavorites, //sending the values to components
-    totalfavorites: userFavorites.length, //lentgh of the state
+    totalFavorites: userFavorites.length, //lentgh of the state
     addFavorite: AddFavoriteHandler,
     removeFavorite: RemoveFavoriteHandler,
     itemIsFavorite: ItemIsFavoriteHandler,

@@ -23,10 +23,23 @@
   border: 1px solid #e0e0e0;
   color: #000;
   transition: all 0.3s linear;
+  position: relative;
 }
-
+.discover-bar a span {
+  width: 15px;
+  height: 15ox;
+  display: flex;
+  bottom: 5px;
+  right: 5px;
+  justify-content: center;
+  position: absolute;
+  font-size: 0.65rem;
+  background-color: #f2984a;
+  color: #fff;
+  border-radius: 50%;
+}
 .header-of-products a:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   transition: all 0.2s linear;
 }
 .discover-bar {
@@ -127,10 +140,15 @@
   align-items: center;
   justify-content: center;
   padding: 25px;
-  background-color: #f1f1ef;
+  background: rgb(200, 217, 217);
+  background: linear-gradient(
+    135deg,
+    rgba(200, 217, 217, 1) 19%,
+    rgba(255, 245, 236, 1) 53%,
+    rgba(236, 205, 163, 1) 85%
+  );
   border-radius: 20px;
   position: relative;
-  transition: all 0.3s linear;
 }
 .like-icon {
   width: 1.5rem;
@@ -210,11 +228,16 @@
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-around;
-  background-color: #f1f1ef;
+  background: rgb(200, 217, 217);
+  background: linear-gradient(
+    135deg,
+    rgba(200, 217, 217, 1) 19%,
+    rgba(255, 245, 236, 1) 53%,
+    rgba(236, 205, 163, 1) 85%
+  );
   border-radius: 20px;
   position: relative;
   padding: 5px 15px 15px 15px;
-  transition: all 0.3s linear;
 }
 .headphone-pic-list-2 {
   width: 100px;
@@ -240,12 +263,11 @@
   border-radius: 50%;
   position: absolute;
   font-size: 1.2rem;
+  background-color: #fff;
 }
 .single-product:hover,
 .single-product-list-2:hover {
-  background-color: #e4eeeee1;
   cursor: pointer;
-  transition: all 0.2s linear;
 }
 @media only screen and (max-width: 600px) {
 }

@@ -6,6 +6,7 @@ import Products from "./pages/products/Products";
 import Card from "./pages/card/Card";
 import Favorites from "./pages/favorites/Favorites";
 import "./App.css";
+import { ColorChangingCtxProvider } from "./stogre/colorChangeing";
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
             <Switch>
               <Route path="/" component={GetStartedPage} exact />
               <Route path="/listofproducts" component={Products} />
-              <Route path="/item/:id" children={<ItemInfo />} />
+              <ColorChangingCtxProvider>
+                <Route path="/item/:id" children={<ItemInfo />} />
+              </ColorChangingCtxProvider>
               <Route path="/card" component={Card} />
               <Route path="/favorites" component={Favorites} />
             </Switch>

@@ -8,8 +8,11 @@ import { Link } from "react-router-dom";
 import "./Products.css";
 import Slider from "../../components/Slider";
 import Slider2 from "../../components/Slider2";
+import { useFavorites } from "../../stogre/addToLikes";
 
 const Products = () => {
+  console.log("component rendered");
+  const favorites = useFavorites();
   return (
     <main className="products-page">
       <header className="header-of-products">
@@ -24,6 +27,7 @@ const Products = () => {
         <span className="discover-bar">
           <h3>discover your best</h3>
           <Link to="/favorites">
+            <span>{favorites.totalFavorites}</span>
             <AiOutlineHeart />
           </Link>
         </span>
