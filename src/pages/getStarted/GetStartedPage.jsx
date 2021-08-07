@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./GetStartedPage.css";
+
+// ***** component start ***** //
+
 const GetStartedPage = () => {
   return (
     <main className="getstarted-page">
@@ -17,5 +20,7 @@ const GetStartedPage = () => {
     </main>
   );
 };
+
+// ***** component ends ***** //
 
 export default GetStartedPage;

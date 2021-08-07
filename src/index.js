@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { AddToLikesCtxProvider } from "./stogre/addToLikes";
+import { AddToLikesCtxProvider } from "./storage/addToLikes";
 
 ReactDOM.render(
   <AddToLikesCtxProvider>

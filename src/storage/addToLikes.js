@@ -7,7 +7,7 @@ const AddToLikesCtx = createContext({
   totalfavorites: 0,
   addFavorite: (favoriteProduct) => {},
   removeFavorite: (productId) => {},
-  isIsFavorite: (productId) => {},
+  itemIsFavorite: (productId) => {},
 });
 
 // ****   component    *****

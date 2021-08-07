@@ -3,7 +3,7 @@ import Swiper from "react-id-swiper";
 import { data } from "../data/data";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useFavorites } from "../stogre/addToLikes";
+import { useFavorites } from "../storage/addToLikes";
 import { RiHeartAddLine } from "react-icons/ri";
 // import "../pages/products/Products.css";
 
@@ -20,7 +20,7 @@ const Slider = () => {
 
   const favoritesContext = useFavorites();
 
-  const toggleFavoriteStatusHandler = (id) => {
+  const toggleFavoriteStatusHandler = (id) => () => {
     const isFavorite = favoritesContext.itemIsFavorite(id); //sending id for the checking favorite
     const userFavorite = products.filter((product) => product.id === id); //getting that spicific item
     if (isFavorite) {
@@ -32,8 +32,7 @@ const Slider = () => {
   return (
     <section className="products-container">
       <Swiper {...params}>
-        {products.map((singleProduct) => {
-          const { img1, title, price, id } = singleProduct;
+        {products.map(({ img1, title, price, id }) => {
           return (
             <div className="single-product" key={id}>
               <Link to={`/item/${id}`}>
@@ -45,7 +44,7 @@ const Slider = () => {
                     ? `like-icon active`
                     : `like-icon `
                 }
-                onClick={() => toggleFavoriteStatusHandler(id)}
+                onClick={toggleFavoriteStatusHandler(id)}
               >
                 <RiHeartAddLine />
               </span>
