@@ -37,6 +37,7 @@
   bottom: 5px;
   right: 5px;
   justify-content: center;
+  align-items: center;
   position: absolute;
   font-size: 0.65rem;
   background-color: #f2984a;

@@ -30,9 +30,11 @@ const ItemInfo = () => {
   //adding to card
   const {
     countProduct,
+    cardProducts,
     addingProductCount,
     removingProductCount,
     addingProduct,
+    isInCard,
   } = useAddToCard();
 
   // states
@@ -70,7 +72,7 @@ const ItemInfo = () => {
   };
 
   const addToCardBtnHandler = () => {
-    if (countProduct > 0) {
+    if (countProduct > 0 && !isInCard(product.id)) {
       addingProduct(product);
     }
   };
@@ -83,7 +85,7 @@ const ItemInfo = () => {
           <FiChevronLeft />
         </Link>
         <Link key="2" to="/card">
-          <span className="cardcunter">{countProduct}</span>
+          <span className="cardcunter">{cardProducts.length}</span>
           <BiShoppingBag />
         </Link>
       </header>
@@ -164,9 +166,9 @@ const ItemInfo = () => {
         </div>
         <div className="item-btn-container">
           <Link
-            to={countProduct > 0 && `/card`}
+            to={countProduct > 0 ? `/card` : null}
             className="items-btn"
-            onClick={() => addToCardBtnHandler()}
+            onClick={addToCardBtnHandler}
           >
             add to card
           </Link>

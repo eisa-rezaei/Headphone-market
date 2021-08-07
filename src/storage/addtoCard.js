@@ -1,11 +1,11 @@
-import { useContext, useState, createContext } from "react";
+import { useContext, useState, createContext, useEffect } from "react";
 //crating the context
 
 const AddToCardCtx = createContext({
   countProduct: {},
   cardProducts: [],
-  addingProductCount: () => {},
-  removingProductCount: () => {},
+  addingProductCount: (product) => {},
+  removingProductCount: (productId) => {},
   removingProduct: (product) => {},
   addingProduct: (product) => {},
   isInCard: () => {},
@@ -13,8 +13,29 @@ const AddToCardCtx = createContext({
 
 //context provider component
 const AddtoCardCtxProvider = ({ children }) => {
+  //default value useEffect
+  useEffect(() => {
+    const cardsProducts = getLocalStorger();
+    setAddedProduct(cardsProducts);
+  }, []);
+
   const [productCount, setProductCount] = useState(0);
   const [addedProduct, setAddedProduct] = useState([]);
+
+  //adding to localStorage
+  useEffect(() => {
+    localStorage.setItem("cardsProducts", JSON.stringify(addedProduct));
+  }, [addedProduct]);
+
+  //function of getting from localstorage
+  const getLocalStorger = () => {
+    let cardsProducts = localStorage.getItem("cardsProducts");
+    if (cardsProducts) {
+      return JSON.parse(localStorage.getItem("cardsProducts"));
+    } else {
+      return [];
+    }
+  };
 
   const addingProductCountHandler = () => {
     setProductCount(productCount + 1);
