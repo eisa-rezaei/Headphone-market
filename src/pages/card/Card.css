@@ -28,3 +28,57 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.2s linear;
 }
+.card-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-around;
+}
+.card-single-product {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f1f1ef;
+  border-radius: 20px;
+  position: relative;
+  padding: 5px 15px 15px 15px;
+  transition: all 0.3s linear;
+}
+.card-items-container {
+  margin-top: 10px;
+}
+.card-items-container li {
+  margin: 10px auto;
+}
+.card-product-description a,
+.card-product-description span {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  transition: all 0.3s linear;
+}
+.card-product-description a {
+  bottom: 15px;
+  right: 15px;
+  background-color: #f2994a;
+  color: #fff;
+}
+.card-product-description span {
+  background-color: #fff;
+  color: #f2994a;
+  top: 15px;
+  right: 15px;
+}
+.card-product-description span:hover,
+.card-product-description a:hover {
+  box-shadow: 0 5px 15px 1px #f2994a;
+}

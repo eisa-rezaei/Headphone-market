@@ -1,7 +1,9 @@
 import React from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
+//local data
 import GetStartedPage from "./pages/getStarted/GetStartedPage";
-import { ColorChangeCtxProvider } from "./storage/colorChange";
+import ColorChangeCtxProvider from "./storage/colorChange";
+import AddtoCardCtxProvider from "./storage/addtoCard";
 import ItemInfo from "./pages/item/ItemInfo";
 import Products from "./pages/products/Products";
 import Card from "./pages/card/Card";
@@ -20,12 +22,18 @@ function App() {
               <Route
                 path="/item/:id"
                 children={
-                  <ColorChangeCtxProvider>
-                    <ItemInfo />
-                  </ColorChangeCtxProvider>
+                  <AddtoCardCtxProvider>
+                    <ColorChangeCtxProvider>
+                      <ItemInfo />
+                    </ColorChangeCtxProvider>
+                  </AddtoCardCtxProvider>
                 }
               />
-              <Route path="/card" component={Card} />
+              <Route path="/card">
+                <AddtoCardCtxProvider>
+                  <Card />
+                </AddtoCardCtxProvider>
+              </Route>
               <Route path="/favorites" component={Favorites} />
             </Switch>
           </Router>
