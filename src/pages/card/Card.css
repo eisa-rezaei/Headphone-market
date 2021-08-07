@@ -43,6 +43,7 @@
 }
 .card-items-container {
   margin-top: 25px;
+  border-bottom: #f2994a;
 }
 .card-items-container li {
   margin: 10px auto;

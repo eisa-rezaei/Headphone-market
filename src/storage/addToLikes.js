@@ -13,25 +13,24 @@ const AddToLikesCtx = createContext({
 // ****   component    *****
 
 const AddToLikesCtxProvider = ({ children }) => {
-  useEffect(() => {
-    const defaultValue = getLocalStorger();
-    setUserFavorites(defaultValue);
-  }, []);
+  const getLocalStorge = () => {
+    let favorites = localStorage.getItem("favoritesProduct");
+    try {
+      if (favorites) {
+        return JSON.parse(localStorage.getItem("favoritesProduct"));
+      } else {
+        return [];
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-  const [userFavorites, setUserFavorites] = useState([]);
+  const [userFavorites, setUserFavorites] = useState(getLocalStorge);
 
   useEffect(() => {
     localStorage.setItem("favoritesProduct", JSON.stringify(userFavorites));
   }, [userFavorites]);
-
-  const getLocalStorger = () => {
-    let favorites = localStorage.getItem("favoritesProduct");
-    if (favorites) {
-      return JSON.parse(localStorage.getItem("favoritesProduct"));
-    } else {
-      return [];
-    }
-  };
 
   //adding
 

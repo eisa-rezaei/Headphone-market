@@ -31,30 +31,26 @@ const Slider = () => {
   return (
     <section className="products-container">
       <Swiper {...params}>
-        {products.map(({ img1, title, price, id }) => {
-          return (
-            <div className="single-product" key={id}>
+        {products.map(({ img1, title, price, id }) => (
+          <div className="single-product" key={id}>
+            <Link to={`/item/${id}`}>
+              <img src={img1} alt={title} className="headphone-pic" />
+            </Link>
+            <span
+              className={itemIsFavorite(id) ? `like-icon active` : `like-icon `}
+              onClick={toggleFavoriteStatusHandler(id)}
+            >
+              <RiHeartAddLine />
+            </span>
+            <div className="product-description">
+              <h5>{title}</h5>
+              <h4>{price}</h4>
               <Link to={`/item/${id}`}>
-                <img src={img1} alt={title} className="headphone-pic" />
+                <BsArrowRight />
               </Link>
-              <span
-                className={
-                  itemIsFavorite(id) ? `like-icon active` : `like-icon `
-                }
-                onClick={toggleFavoriteStatusHandler(id)}
-              >
-                <RiHeartAddLine />
-              </span>
-              <div className="product-description">
-                <h5>{title}</h5>
-                <h4>{price}</h4>
-                <Link to={`/item/${id}`}>
-                  <BsArrowRight />
-                </Link>
-              </div>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </Swiper>
     </section>
   );

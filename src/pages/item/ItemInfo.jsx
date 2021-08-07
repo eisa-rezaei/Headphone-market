@@ -34,6 +34,7 @@ const ItemInfo = () => {
     addingProductCount,
     removingProductCount,
     addingProduct,
+    productCountReSet,
     isInCard,
   } = useAddToCard();
 
@@ -75,16 +76,18 @@ const ItemInfo = () => {
     if (countProduct > 0 && !isInCard(product.id)) {
       addingProduct(product);
     }
+    colorIsBlack();
+    productCountReSet(0);
   };
   //component
 
   return (
     <main className="item-page">
       <header className="header-of-item">
-        <Link key="1" to="/listofproducts">
+        <Link key="1" to="/listofproducts" onClick={colorIsBlack}>
           <FiChevronLeft />
         </Link>
-        <Link key="2" to="/card">
+        <Link key="2" to="/card" onClick={colorIsBlack}>
           <span className="cardcunter">{cardProducts.length}</span>
           <BiShoppingBag />
         </Link>
