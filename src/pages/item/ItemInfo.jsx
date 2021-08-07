@@ -9,6 +9,7 @@ import { RiHeartAddLine } from "react-icons/ri";
 // local data
 import { useFavorites } from "../../storage/addToLikes";
 import { useColorChange } from "../../storage/colorChange";
+import { useAddToCard } from "../../storage/addtoCard";
 import { data } from "../../data/data";
 import "./ItemInfo.css";
 
@@ -26,9 +27,18 @@ const ItemInfo = () => {
       addFavorite(userFavorite);
     }
   };
+  //adding to card
+  const {
+    countProduct,
+    cardProducts,
+    addingProductCount,
+    removingProductCount,
+    addingProduct,
+    isInCard,
+  } = useAddToCard();
+
   // states
   const [product, setProduct] = useState({});
-  const [count, setCount] = useState(0);
   //params
   const { id } = useParams();
 
@@ -61,6 +71,11 @@ const ItemInfo = () => {
     },
   };
 
+  const addToCardBtnHandler = () => {
+    if (countProduct > 0 && !isInCard(product.id)) {
+      addingProduct(product);
+    }
+  };
   //component
 
   return (
@@ -70,6 +85,7 @@ const ItemInfo = () => {
           <FiChevronLeft />
         </Link>
         <Link key="2" to="/card">
+          <span className="cardcunter">{cardProducts.length}</span>
           <BiShoppingBag />
         </Link>
       </header>
@@ -138,24 +154,22 @@ const ItemInfo = () => {
           <div className="item-addcard-price">
             <h2>{price}</h2>
             <div className="add-card-count">
-              <span
-                onClick={() => {
-                  if (count > 0) {
-                    setCount(count - 1);
-                  }
-                }}
-              >
+              <span onClick={removingProductCount}>
                 <BiMinus />
               </span>
-              <h3>{count}</h3>
-              <span onClick={() => setCount(count + 1)}>
+              <h3>{countProduct}</h3>
+              <span onClick={addingProductCount}>
                 <BiPlus />
               </span>
             </div>
           </div>
         </div>
         <div className="item-btn-container">
-          <Link to="/listofproducts" className="items-btn">
+          <Link
+            to={countProduct > 0 ? `/card` : null}
+            className="items-btn"
+            onClick={addToCardBtnHandler}
+          >
             add to card
           </Link>
         </div>

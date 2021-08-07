@@ -9,7 +9,7 @@ const ColorChangeCtx = createContext({
   colorIsBlue: () => {},
 });
 
-export const ColorChangeCtxProvider = ({ children }) => {
+const ColorChangeCtxProvider = ({ children }) => {
   const [colors, setColors] = useState({
     isBlack: true,
     isGold: false,
@@ -58,4 +58,4 @@ export const useColorChange = () => {
   return useContext(ColorChangeCtx);
 };
 
-export { ColorChangeCtx };
+export default ColorChangeCtxProvider;

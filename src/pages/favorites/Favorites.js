@@ -17,6 +17,7 @@ const Favorites = () => {
       return removeFavorite(id);
     }
   };
+
   return (
     <main className="favorites-page">
       <header className="header-of-favorites">

@@ -10,11 +10,13 @@ import { AiOutlineHeart } from "react-icons/ai";
 import Slider from "../../components/Slider";
 import Slider2 from "../../components/Slider2";
 import { useFavorites } from "../../storage/addToLikes";
+import { useAddToCard } from "../../storage/addtoCard";
 import "./Products.css";
 
 // ***** component start ***** //
 const Products = () => {
   const favorites = useFavorites();
+  const { cardProducts } = useAddToCard();
 
   return (
     <main className="products-page">
@@ -23,6 +25,7 @@ const Products = () => {
           <IoGridOutline />
         </Link>
         <Link key="2" to="/card">
+          <span className="cardcunter">{cardProducts.length} </span>
           <BiShoppingBag />
         </Link>
       </header>

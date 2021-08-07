@@ -23,11 +23,28 @@
   border: 1px solid #e0e0e0;
   color: #000;
   transition: all 0.3s linear;
+  position: relative;
 }
 .item-change-color span:hover,
 .header-of-item a:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.2s linear;
+}
+.cardcunter {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  bottom: 5px;
+  right: 5px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  font-size: 0.65rem;
+  background-color: #f2984a;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 10px;
+  font-size: 0.5rem;
 }
 .headphone-pic-item {
   width: 250px;

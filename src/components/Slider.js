@@ -18,15 +18,14 @@ const Slider = () => {
     slidesPerView: 1.5,
   };
 
-  const favoritesContext = useFavorites();
+  const { itemIsFavorite, removeFavorite, addFavorite } = useFavorites();
 
   const toggleFavoriteStatusHandler = (id) => () => {
-    const isFavorite = favoritesContext.itemIsFavorite(id); //sending id for the checking favorite
     const userFavorite = products.filter((product) => product.id === id); //getting that spicific item
-    if (isFavorite) {
-      favoritesContext.removeFavorite(id);
+    if (itemIsFavorite(id)) {
+      removeFavorite(id);
     } else {
-      favoritesContext.addFavorite(userFavorite);
+      addFavorite(userFavorite);
     }
   };
   return (
@@ -40,9 +39,7 @@ const Slider = () => {
               </Link>
               <span
                 className={
-                  favoritesContext.itemIsFavorite(id)
-                    ? `like-icon active`
-                    : `like-icon `
+                  itemIsFavorite(id) ? `like-icon active` : `like-icon `
                 }
                 onClick={toggleFavoriteStatusHandler(id)}
               >

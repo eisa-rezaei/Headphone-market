@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 //crating Context
 const AddToLikesCtx = createContext({
@@ -13,7 +13,25 @@ const AddToLikesCtx = createContext({
 // ****   component    *****
 
 const AddToLikesCtxProvider = ({ children }) => {
+  useEffect(() => {
+    const defaultValue = getLocalStorger();
+    setUserFavorites(defaultValue);
+  }, []);
+
   const [userFavorites, setUserFavorites] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem("favoritesProduct", JSON.stringify(userFavorites));
+  }, [userFavorites]);
+
+  const getLocalStorger = () => {
+    let favorites = localStorage.getItem("favoritesProduct");
+    if (favorites) {
+      return JSON.parse(localStorage.getItem("favoritesProduct"));
+    } else {
+      return [];
+    }
+  };
 
   //adding
 
@@ -55,4 +73,4 @@ export const useFavorites = () => {
   return useContext(AddToLikesCtx);
 };
 
-export { AddToLikesCtxProvider };
+export default AddToLikesCtxProvider;
