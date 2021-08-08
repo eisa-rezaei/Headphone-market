@@ -74,7 +74,7 @@ const ItemInfo = () => {
 
   const addToCardBtnHandler = () => {
     if (countProduct > 0 && !isInCard(product.id)) {
-      addingProduct(product);
+      addingProduct(product, countProduct);
     }
     colorIsBlack();
     productCountReSet(0);
@@ -169,7 +169,7 @@ const ItemInfo = () => {
         </div>
         <div className="item-btn-container">
           <Link
-            to={countProduct > 0 ? `/card` : null}
+            to={countProduct > 0 ? `/card` : `/item/${id}`}
             className="items-btn"
             onClick={addToCardBtnHandler}
           >
