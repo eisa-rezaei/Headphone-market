@@ -15,6 +15,18 @@ const Card = () => {
       removingProduct(id);
     }
   };
+  const payPrice = (price, count) => {
+    const total = price * count;
+    return total;
+  };
+
+  let sum = 0;
+  cardProducts.forEach(({ count, price }) => {
+    let total = 0;
+    total = count * price;
+    sum += total;
+  });
+
   return (
     <main className="card-page">
       <header className="header-of-card">
@@ -24,26 +36,38 @@ const Card = () => {
       </header>
       <ul className="card-items-container">
         <h3>your card products</h3>
-        {cardProducts.map(({ title, img1, price, id }) => {
-          return (
-            <li className="card-single-product" key={id}>
-              <Link to={`/item/${id}`}>
-                <img src={img1} alt={title} className="headphone-pic-list-2" />
-              </Link>
-              <div className="card-product-description">
-                <span onClick={removingProductHanlder(id)}>
-                  <HiOutlineMinusSm />
-                </span>
-                <h5>{title}</h5>
-                <h4>{price}</h4>
-                <Link to={`/item/${id}`}>
-                  <BsArrowRight />
-                </Link>
+        {cardProducts.map(({ title, img1, price, id, count }) => (
+          <li className="card-single-product" key={id}>
+            <Link to={`/item/${id}`}>
+              <img src={img1} alt={title} className="headphone-pic-list-2" />
+            </Link>
+            <div className="card-product-description">
+              <span onClick={removingProductHanlder(id)}>
+                <HiOutlineMinusSm />
+              </span>
+              <h5>{title}</h5>
+              <div className="prices-total-box">
+                <h4>{price} ✖︎ </h4>
+                <h4>{count} =</h4>
+                <h4>{payPrice(price, count)}</h4>
               </div>
-            </li>
-          );
-        })}
+              <Link to={`/item/${id}`}>
+                <BsArrowRight />
+              </Link>
+            </div>
+          </li>
+        ))}
       </ul>
+      <div className="pay-with-credit">
+        <div className="item-price-card">
+          <h4>total price is {sum} $</h4>
+        </div>
+        <div className="card-btn-container">
+          <Link to="/card" className="card-btn">
+            pay with credit
+          </Link>
+        </div>
+      </div>
     </main>
   );
 };

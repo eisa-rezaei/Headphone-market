@@ -55,9 +55,9 @@ const AddtoCardCtxProvider = ({ children }) => {
     });
   };
   //removing func
-  const addingProductHanlder = (product) => {
+  const addingProductHanlder = (product, count) => {
     setAddedProduct((prev) => {
-      return prev.concat(product);
+      return prev.concat({ ...product, count: count });
     });
   };
   //boolean func
