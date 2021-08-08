@@ -22,9 +22,7 @@ const Card = () => {
 
   let sum = 0;
   cardProducts.forEach(({ count, price }) => {
-    let total = 0;
-    total = count * price;
-    sum += total;
+    sum += count * price;
   });
 
   return (

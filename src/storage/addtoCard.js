@@ -24,7 +24,7 @@ const AddtoCardCtxProvider = ({ children }) => {
         return [];
       }
     } catch (err) {
-      console.log(err);
+      return [];
     }
   };
 
