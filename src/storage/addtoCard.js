@@ -9,58 +9,66 @@ const AddToCardCtx = createContext({
   removingProduct: (product) => {},
   addingProduct: (product) => {},
   isInCard: () => {},
+  productCountReSet: (number) => {},
 });
 
 //context provider component
 const AddtoCardCtxProvider = ({ children }) => {
-  //default value useEffect
-  useEffect(() => {
-    const cardsProducts = getLocalStorger();
-    setAddedProduct(cardsProducts);
-  }, []);
+  //function of getting from localstorage
+  const getLocalStorge = () => {
+    let cardsProducts = localStorage.getItem("cardsProducts");
+    try {
+      if (cardsProducts) {
+        return JSON.parse(localStorage.getItem("cardsProducts"));
+      } else {
+        return [];
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
+  // states
   const [productCount, setProductCount] = useState(0);
-  const [addedProduct, setAddedProduct] = useState([]);
+  const [addedProduct, setAddedProduct] = useState(getLocalStorge);
 
   //adding to localStorage
   useEffect(() => {
     localStorage.setItem("cardsProducts", JSON.stringify(addedProduct));
   }, [addedProduct]);
 
-  //function of getting from localstorage
-  const getLocalStorger = () => {
-    let cardsProducts = localStorage.getItem("cardsProducts");
-    if (cardsProducts) {
-      return JSON.parse(localStorage.getItem("cardsProducts"));
-    } else {
-      return [];
-    }
-  };
-
+  //adding count func
   const addingProductCountHandler = () => {
     setProductCount(productCount + 1);
   };
 
+  //removing count func
   const removingProductCountHandler = () => {
     if (productCount > 0) {
       return setProductCount(productCount - 1);
     }
   };
-
+  //adding func
   const removingProductHanlder = (productId) => {
     setAddedProduct((prev) => {
       return prev.filter((product) => product.id !== productId);
     });
   };
+  //removing func
   const addingProductHanlder = (product) => {
     setAddedProduct((prev) => {
       return prev.concat(product);
     });
   };
+  //boolean func
   const isInCardHandler = (productId) => {
     return addedProduct.some((product) => product.id === productId);
   };
+  const reSetProductCount = (value) => {
+    return setProductCount(value);
+  };
 
+  //context
   const context = {
     countProduct: productCount,
     addingProductCount: addingProductCountHandler,
@@ -69,13 +77,16 @@ const AddtoCardCtxProvider = ({ children }) => {
     addingProduct: addingProductHanlder,
     isInCard: isInCardHandler,
     cardProducts: addedProduct,
+    productCountReSet: reSetProductCount,
   };
 
+  // jsx
   return (
     <AddToCardCtx.Provider value={context}>{children}</AddToCardCtx.Provider>
   );
 };
 
+//custom hook
 export const useAddToCard = () => {
   return useContext(AddToCardCtx);
 };
