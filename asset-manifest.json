@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Headphone-market/static/css/main.ea6f8744.chunk.css",
-    "main.js": "/Headphone-market/static/js/main.28c54456.chunk.js",
-    "main.js.map": "/Headphone-market/static/js/main.28c54456.chunk.js.map",
+    "main.js": "/Headphone-market/static/js/main.ea2b9b29.chunk.js",
+    "main.js.map": "/Headphone-market/static/js/main.ea2b9b29.chunk.js.map",
     "runtime-main.js": "/Headphone-market/static/js/runtime-main.06f1e5cd.js",
     "runtime-main.js.map": "/Headphone-market/static/js/runtime-main.06f1e5cd.js.map",
     "static/js/2.923094ec.chunk.js": "/Headphone-market/static/js/2.923094ec.chunk.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.06f1e5cd.js",
     "static/js/2.923094ec.chunk.js",
     "static/css/main.ea6f8744.chunk.css",
-    "static/js/main.28c54456.chunk.js"
+    "static/js/main.ea2b9b29.chunk.js"
   ]
 }
