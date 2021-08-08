@@ -4,9 +4,9 @@ const ColorChangeCtx = createContext({
   isBlue: {},
   isGold: {},
   isBlack: {},
-  colorIsBlack: () => {},
-  colorIsGold: () => {},
-  colorIsBlue: () => {},
+  changeColorIsBlack: () => {},
+  changeColorIsGold: () => {},
+  changeColorIsBlue: () => {},
 });
 
 const ColorChangeCtxProvider = ({ children }) => {
@@ -42,9 +42,9 @@ const ColorChangeCtxProvider = ({ children }) => {
     isGold: colors.isGold,
     isBlack: colors.isBlack,
     colorIs: colors,
-    colorIsBlack: colorBlackHandler,
-    colorIsGold: colorGoldHandler,
-    colorIsBlue: colorBlueHandler,
+    changeColorIsBlack: colorBlackHandler,
+    changeColorIsGold: colorGoldHandler,
+    changeColorIsBlue: colorBlueHandler,
   };
 
   return (

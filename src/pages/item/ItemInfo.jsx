@@ -50,8 +50,14 @@ const ItemInfo = () => {
 
   const { title, img1, img2, img3, price, details } = product;
 
-  const { isBlack, isGold, isBlue, colorIsBlack, colorIsBlue, colorIsGold } =
-    useColorChange();
+  const {
+    isBlack,
+    isGold,
+    isBlue,
+    changeColorIsBlack,
+    changeColorIsBlue,
+    changeColorIsGold,
+  } = useColorChange();
   const imageSrcHandler = () => {
     if (isBlack) {
       return img1;
@@ -76,7 +82,7 @@ const ItemInfo = () => {
     if (countProduct > 0 && !isInCard(product.id)) {
       addingProduct(product, countProduct);
     }
-    colorIsBlack();
+    changeColorIsBlack();
     productCountReSet(0);
   };
   //component
@@ -84,10 +90,10 @@ const ItemInfo = () => {
   return (
     <main className="item-page">
       <header className="header-of-item">
-        <Link key="1" to="/listofproducts" onClick={colorIsBlack}>
+        <Link key="1" to="/listofproducts" onClick={changeColorIsBlack}>
           <FiChevronLeft />
         </Link>
-        <Link key="2" to="/card" onClick={colorIsBlack}>
+        <Link key="2" to="/card" onClick={changeColorIsBlack}>
           <span className="cardcunter">{cardProducts.length}</span>
           <BiShoppingBag />
         </Link>
@@ -120,13 +126,13 @@ const ItemInfo = () => {
           </div>
         </Swiper>
         <div className="item-change-color">
-          <span className="color-link1" onClick={colorIsBlack}>
+          <span className="color-link1" onClick={changeColorIsBlack}>
             {isBlack && <p />}
           </span>
-          <span className="color-link2" onClick={colorIsGold}>
+          <span className="color-link2" onClick={changeColorIsGold}>
             {isGold && <p />}
           </span>
-          <span className="color-link3" onClick={colorIsBlue}>
+          <span className="color-link3" onClick={changeColorIsBlue}>
             {isBlue && <p />}
           </span>
         </div>

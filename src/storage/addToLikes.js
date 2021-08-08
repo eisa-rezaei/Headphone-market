@@ -22,11 +22,11 @@ const AddToLikesCtxProvider = ({ children }) => {
         return [];
       }
     } catch (err) {
-      console.log(err);
+      return [];
     }
   };
 
-  const [userFavorites, setUserFavorites] = useState(getLocalStorge);
+  const [userFavorites, setUserFavorites] = useState(getLocalStorge());
 
   useEffect(() => {
     localStorage.setItem("favoritesProduct", JSON.stringify(userFavorites));
