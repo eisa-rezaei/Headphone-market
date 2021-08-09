@@ -40,14 +40,19 @@ const Card = () => {
               <img src={img1} alt={title} className="headphone-pic-list-2" />
             </Link>
             <div className="card-product-description">
-              <span onClick={removingProductHanlder(id)}>
+              <span
+                onClick={removingProductHanlder(id)}
+                className="delete-from-card-icon"
+              >
                 <HiOutlineMinusSm />
               </span>
               <h5>{title}</h5>
               <div className="prices-total-box">
-                <h4>{price} ✖︎ </h4>
-                <h4>{count} =</h4>
-                <h4>{payPrice(price, count)}</h4>
+                <h4>
+                  {price} ✖︎{"  "}
+                </h4>
+                <h4> {count} =</h4>
+                <span>{payPrice(price, count)} $</span>
               </div>
               <Link to={`/item/${id}`}>
                 <BsArrowRight />

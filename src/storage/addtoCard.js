@@ -7,9 +7,9 @@ const AddToCardCtx = createContext({
   cardProducts: [],
   addingProductCount: (product) => {},
   removingProductCount: (productId) => {},
-  removingProduct: (product) => {},
+  removingProduct: (productId) => {},
   addingProduct: (product) => {},
-  isInCard: () => {},
+  isInCard: (productId) => {},
   countProductChange: (productId) => {},
   productCountReSet: (number) => {},
 });

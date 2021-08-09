@@ -32,6 +32,7 @@ const ItemInfo = () => {
     countProduct,
     addingProductCount,
     removingProductCount,
+    removingProduct,
     addingProduct,
     countProductChange,
     productCountReSet,
@@ -87,6 +88,10 @@ const ItemInfo = () => {
     changeColorIsBlack();
     productCountReSet(0);
   };
+  const removeFromCardBtnHandler = () => {
+    removingProduct(product.id);
+  };
+
   //component
 
   return (
@@ -163,7 +168,7 @@ const ItemInfo = () => {
         <div className="item-price-card">
           <h4>price</h4>
           <div className="item-addcard-price">
-            <h2>{price}</h2>
+            <h2>{price} $</h2>
             <div className="add-card-count">
               <span onClick={removingProductCount}>
                 <BiMinus />
@@ -176,8 +181,17 @@ const ItemInfo = () => {
           </div>
         </div>
         <div className="item-btn-container">
-          <button className="items-btn" onClick={addToCardBtnHandler}>
-            add to card
+          <button
+            className={isInCard(product.id) ? `items-btn focused` : `items-btn`}
+            onClick={() => {
+              if (!isInCard(product.id)) {
+                addToCardBtnHandler();
+              } else {
+                removeFromCardBtnHandler(product.id);
+              }
+            }}
+          >
+            {isInCard(product.id) ? `remove from card` : `add to card`}
           </button>
         </div>
       </div>

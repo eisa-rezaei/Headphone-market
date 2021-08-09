@@ -231,10 +231,10 @@
   transition: all 0.3s linear;
   box-shadow: 0 5px 20px 2px #4af2ea88;
 }
-.items-btn:focus {
-  color: #fff;
-  background-color: #eccb61;
-  border: 1px solid #f2994a;
+.focused {
+  color: #222;
+  background-color: #caee98e9;
+  border: 1px solid #b2f24a;
 }
 @media only screen and (max-width: 600px) {
   .item-btn-container {
