@@ -30,12 +30,13 @@ const ItemInfo = () => {
   //adding to card
   const {
     countProduct,
-    cardProducts,
     addingProductCount,
     removingProductCount,
     addingProduct,
+    countProductChange,
     productCountReSet,
     isInCard,
+    cardProducts,
   } = useAddToCard();
 
   // states
@@ -80,7 +81,9 @@ const ItemInfo = () => {
 
   const addToCardBtnHandler = () => {
     if (countProduct > 0 && !isInCard(product.id)) {
-      addingProduct(product, countProduct);
+      addingProduct(product);
+    } else {
+      countProductChange(parseInt(product.id));
     }
     changeColorIsBlack();
     productCountReSet(0);
@@ -94,13 +97,13 @@ const ItemInfo = () => {
           <FiChevronLeft />
         </Link>
         <Link key="2" to="/card" onClick={changeColorIsBlack}>
-          <span className="cardcunter">{cardProducts.length}</span>
+          <span className="cardcunter">{countProduct}</span>
           <BiShoppingBag />
         </Link>
       </header>
       <div className="item-img-container">
         <Swiper {...params}>
-          <div className="item-single-pic">
+          <div className="item-single-pic" key="1">
             <img
               src={imageSrcHandler()}
               alt={title}
@@ -108,7 +111,7 @@ const ItemInfo = () => {
               id="1"
             />
           </div>
-          <div className="item-single-pic">
+          <div className="item-single-pic" key="2">
             <img
               src={imageSrcHandler()}
               alt={title}
@@ -116,7 +119,7 @@ const ItemInfo = () => {
               id="2"
             />
           </div>
-          <div className="item-single-pic">
+          <div className="item-single-pic" key="3">
             <img
               src={imageSrcHandler()}
               alt={title}
@@ -174,13 +177,9 @@ const ItemInfo = () => {
           </div>
         </div>
         <div className="item-btn-container">
-          <Link
-            to={countProduct > 0 ? `/card` : `/item/${id}`}
-            className="items-btn"
-            onClick={addToCardBtnHandler}
-          >
+          <button className="items-btn" onClick={addToCardBtnHandler}>
             add to card
-          </Link>
+          </button>
         </div>
       </div>
     </main>

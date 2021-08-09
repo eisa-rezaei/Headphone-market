@@ -89,11 +89,14 @@
 .card-product-description a:hover {
   box-shadow: 0 5px 15px 1px #f2994a;
 }
+.cards-total-price {
+  margin: 15px 0;
+}
 .pay-with-credit {
   width: 100%;
   padding: 0 15px;
   position: absolute;
-  bottom: 28px;
+  bottom: 30px;
   left: 0;
 }
 .card-btn-container {

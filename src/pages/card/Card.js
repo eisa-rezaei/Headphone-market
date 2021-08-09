@@ -57,7 +57,7 @@ const Card = () => {
         ))}
       </ul>
       <div className="pay-with-credit">
-        <div className="item-price-card">
+        <div className="cards-total-price">
           <h4>total price is {sum} $</h4>
         </div>
         <div className="card-btn-container">
