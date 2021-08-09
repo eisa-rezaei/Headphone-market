@@ -36,7 +36,6 @@ const ItemInfo = () => {
     countProductChange,
     productCountReSet,
     isInCard,
-    cardProducts,
   } = useAddToCard();
 
   // states
