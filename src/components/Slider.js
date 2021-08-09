@@ -4,6 +4,7 @@ import { data } from "../data/data";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useFavorites } from "../storage/addToLikes";
+import { useAddToCard } from "../storage/addtoCard";
 import { RiHeartAddLine } from "react-icons/ri";
 // import "../pages/products/Products.css";
 
@@ -19,6 +20,13 @@ const Slider = () => {
   };
 
   const { itemIsFavorite, removeFavorite, addFavorite } = useFavorites();
+  const { productCountReSet, isInCard } = useAddToCard();
+
+  const productCountReSetHandler = (id) => () => {
+    if (!isInCard(id)) {
+      productCountReSet(0);
+    }
+  };
 
   const toggleFavoriteStatusHandler = (id) => () => {
     const userFavorite = products.filter((product) => product.id === id); //getting that spicific item
@@ -33,7 +41,7 @@ const Slider = () => {
       <Swiper {...params}>
         {products.map(({ img1, title, price, id }) => (
           <div className="single-product" key={id}>
-            <Link to={`/item/${id}`}>
+            <Link to={`/item/${id}`} onClick={productCountReSetHandler(id)}>
               <img src={img1} alt={title} className="headphone-pic" />
             </Link>
             <span
@@ -45,7 +53,7 @@ const Slider = () => {
             <div className="product-description">
               <h5>{title}</h5>
               <h4>{price}</h4>
-              <Link to={`/item/${id}`}>
+              <Link to={`/item/${id}`} onClick={productCountReSetHandler(id)}>
                 <BsArrowRight />
               </Link>
             </div>

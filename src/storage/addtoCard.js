@@ -33,6 +33,7 @@ const AddtoCardCtxProvider = ({ children }) => {
   // states
   const [productCount, setProductCount] = useState(0);
   const [addedProduct, setAddedProduct] = useState(getLocalStorge());
+  const [totalCounte, setTotalCounte] = useState(0);
 
   const countProductChange = (productId) => {
     const product = addedProduct.filter((product) => product.id === productId);
@@ -77,6 +78,9 @@ const AddtoCardCtxProvider = ({ children }) => {
     return setProductCount(value);
   };
 
+  const setTotalCounteHandler = (value) => {
+    setTotalCounte(value);
+  };
   //context
   const context = {
     countProduct: productCount,
@@ -88,6 +92,8 @@ const AddtoCardCtxProvider = ({ children }) => {
     cardProducts: addedProduct,
     productCountReSet: reSetProductCount,
     countProductChange: countProductChange,
+    setTotalCounte: setTotalCounteHandler,
+    totalCounte: totalCounte,
   };
 
   // jsx

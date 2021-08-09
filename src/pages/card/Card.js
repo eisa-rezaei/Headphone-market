@@ -9,7 +9,8 @@ import "./Card.css";
 // ***** component start ***** //
 
 const Card = () => {
-  const { cardProducts, removingProduct, isInCard } = useAddToCard([]);
+  const { cardProducts, removingProduct, isInCard, setTotalCounte } =
+    useAddToCard([]);
   const removingProductHanlder = (id) => () => {
     if (isInCard(id)) {
       removingProduct(id);
@@ -19,16 +20,21 @@ const Card = () => {
     const total = price * count;
     return total;
   };
-
+  let totalCount = 0;
   let sum = 0;
   cardProducts.forEach(({ count, price }) => {
     sum += count * price;
+    totalCount += count;
   });
 
   return (
     <main className="card-page">
       <header className="header-of-card">
-        <Link key="1" to="/listofproducts">
+        <Link
+          key="1"
+          to="/listofproducts"
+          onClick={() => setTotalCounte(totalCount)}
+        >
           <FiChevronLeft />
         </Link>
       </header>
