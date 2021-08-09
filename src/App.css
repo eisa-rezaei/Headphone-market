@@ -45,6 +45,7 @@ body {
 .pages-container {
   width: 100%;
   min-height: 780px;
+  max-height: 780px;
   margin: 0 auto;
   border-radius: 40px;
   position: relative;

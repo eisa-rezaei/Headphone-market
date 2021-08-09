@@ -1,4 +1,5 @@
 import { useContext, useState, createContext, useEffect } from "react";
+
 //crating the context
 
 const AddToCardCtx = createContext({
@@ -6,9 +7,10 @@ const AddToCardCtx = createContext({
   cardProducts: [],
   addingProductCount: (product) => {},
   removingProductCount: (productId) => {},
-  removingProduct: (product) => {},
+  removingProduct: (productId) => {},
   addingProduct: (product) => {},
-  isInCard: () => {},
+  isInCard: (productId) => {},
+  countProductChange: (productId) => {},
   productCountReSet: (number) => {},
 });
 
@@ -30,12 +32,18 @@ const AddtoCardCtxProvider = ({ children }) => {
 
   // states
   const [productCount, setProductCount] = useState(0);
-  const [addedProduct, setAddedProduct] = useState(getLocalStorge);
+  const [addedProduct, setAddedProduct] = useState(getLocalStorge());
+
+  const countProductChange = (productId) => {
+    const product = addedProduct.filter((product) => product.id === productId);
+    const newProduct = product[0];
+    newProduct.count = productCount;
+  };
 
   //adding to localStorage
   useEffect(() => {
     localStorage.setItem("cardsProducts", JSON.stringify(addedProduct));
-  }, [addedProduct]);
+  }, [addedProduct, countProductChange.newProduct]);
 
   //adding count func
   const addingProductCountHandler = () => {
@@ -55,11 +63,12 @@ const AddtoCardCtxProvider = ({ children }) => {
     });
   };
   //removing func
-  const addingProductHanlder = (product, count) => {
+  const addingProductHanlder = (product) => {
     setAddedProduct((prev) => {
-      return prev.concat({ ...product, count: count });
+      return prev.concat({ ...product, count: productCount });
     });
   };
+
   //boolean func
   const isInCardHandler = (productId) => {
     return addedProduct.some((product) => product.id === productId);
@@ -78,6 +87,7 @@ const AddtoCardCtxProvider = ({ children }) => {
     isInCard: isInCardHandler,
     cardProducts: addedProduct,
     productCountReSet: reSetProductCount,
+    countProductChange: countProductChange,
   };
 
   // jsx

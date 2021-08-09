@@ -30,10 +30,11 @@ const ItemInfo = () => {
   //adding to card
   const {
     countProduct,
-    cardProducts,
     addingProductCount,
     removingProductCount,
+    removingProduct,
     addingProduct,
+    countProductChange,
     productCountReSet,
     isInCard,
   } = useAddToCard();
@@ -80,11 +81,17 @@ const ItemInfo = () => {
 
   const addToCardBtnHandler = () => {
     if (countProduct > 0 && !isInCard(product.id)) {
-      addingProduct(product, countProduct);
+      addingProduct(product);
+    } else {
+      countProductChange(parseInt(product.id));
     }
     changeColorIsBlack();
     productCountReSet(0);
   };
+  const removeFromCardBtnHandler = () => {
+    removingProduct(product.id);
+  };
+
   //component
 
   return (
@@ -94,13 +101,13 @@ const ItemInfo = () => {
           <FiChevronLeft />
         </Link>
         <Link key="2" to="/card" onClick={changeColorIsBlack}>
-          <span className="cardcunter">{cardProducts.length}</span>
+          <span className="cardcunter">{countProduct}</span>
           <BiShoppingBag />
         </Link>
       </header>
       <div className="item-img-container">
         <Swiper {...params}>
-          <div className="item-single-pic">
+          <div className="item-single-pic" key="1">
             <img
               src={imageSrcHandler()}
               alt={title}
@@ -108,7 +115,7 @@ const ItemInfo = () => {
               id="1"
             />
           </div>
-          <div className="item-single-pic">
+          <div className="item-single-pic" key="2">
             <img
               src={imageSrcHandler()}
               alt={title}
@@ -116,7 +123,7 @@ const ItemInfo = () => {
               id="2"
             />
           </div>
-          <div className="item-single-pic">
+          <div className="item-single-pic" key="3">
             <img
               src={imageSrcHandler()}
               alt={title}
@@ -161,7 +168,7 @@ const ItemInfo = () => {
         <div className="item-price-card">
           <h4>price</h4>
           <div className="item-addcard-price">
-            <h2>{price}</h2>
+            <h2>{price} $</h2>
             <div className="add-card-count">
               <span onClick={removingProductCount}>
                 <BiMinus />
@@ -174,13 +181,18 @@ const ItemInfo = () => {
           </div>
         </div>
         <div className="item-btn-container">
-          <Link
-            to={countProduct > 0 ? `/card` : `/item/${id}`}
-            className="items-btn"
-            onClick={addToCardBtnHandler}
+          <button
+            className={isInCard(product.id) ? `items-btn focused` : `items-btn`}
+            onClick={() => {
+              if (!isInCard(product.id)) {
+                addToCardBtnHandler();
+              } else {
+                removeFromCardBtnHandler(product.id);
+              }
+            }}
           >
-            add to card
-          </Link>
+            {isInCard(product.id) ? `remove from card` : `add to card`}
+          </button>
         </div>
       </div>
     </main>
