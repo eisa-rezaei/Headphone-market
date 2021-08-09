@@ -1,2 +1,4 @@
-EISA REZAEI 1400/5/14 ![smile]
-![plot](./src/assets/headphone_1_1.png =100x)![plot](./src/assets/headphone_2_1.png =50x)![plot](./src/assets/headphone_3_1.png =100x)
+EISA REZAEI 1400/5/14
+![plot][./src/assets/headphone_1_1.png]{height=100px width=100px}
+![plot][./src/assets/headphone_2_1.png ]{height=50px width=50px}
+![plot][./src/assets/headphone_3_1.png ]{height=100px width=100px
