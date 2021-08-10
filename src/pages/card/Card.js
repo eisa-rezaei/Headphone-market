@@ -9,11 +9,12 @@ import "./Card.css";
 // ***** component start ***** //
 
 const Card = () => {
-  const { cardProducts, removingProduct, isInCard, setTotalCounte } =
-    useAddToCard([]);
-  const removingProductHanlder = (id) => () => {
+  const { cardProducts, removeProduct, isInCard, setTotalCount } = useAddToCard(
+    []
+  );
+  const removeProductHanlder = (id) => () => {
     if (isInCard(id)) {
-      removingProduct(id);
+      removeProduct(id);
     }
   };
   const payPrice = (price, count) => {
@@ -33,7 +34,7 @@ const Card = () => {
         <Link
           key="1"
           to="/listofproducts"
-          onClick={() => setTotalCounte(totalCount)}
+          onClick={() => setTotalCount(totalCount)}
         >
           <FiChevronLeft />
         </Link>
@@ -47,7 +48,7 @@ const Card = () => {
             </Link>
             <div className="card-product-description">
               <span
-                onClick={removingProductHanlder(id)}
+                onClick={removeProductHanlder(id)}
                 className="delete-from-card-icon"
               >
                 <HiOutlineMinusSm />

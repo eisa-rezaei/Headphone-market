@@ -16,7 +16,7 @@ import "./Products.css";
 // ***** component start ***** //
 const Products = () => {
   const favorites = useFavorites();
-  const { totalCounte } = useAddToCard();
+  const { totalCount } = useAddToCard();
 
   return (
     <main className="products-page">
@@ -25,7 +25,7 @@ const Products = () => {
           <IoGridOutline />
         </Link>
         <Link key="2" to="/card">
-          <span className="cardcunter">{totalCounte} </span>
+          <span className="cardcunter">{totalCount} </span>
           <BiShoppingBag />
         </Link>
       </header>

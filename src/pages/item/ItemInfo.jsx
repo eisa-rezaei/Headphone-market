@@ -30,15 +30,15 @@ const ItemInfo = () => {
   //adding to card
   const {
     countProduct,
-    addingProductCount,
-    removingProductCount,
-    removingProduct,
-    addingProduct,
+    addProductCount,
+    removeProductCount,
+    removeProduct,
+    addProduct,
     countProductChange,
     isInCard,
     cardProducts,
     productCountReSet,
-    totalCounte,
+    totalCount,
   } = useAddToCard();
 
   // states
@@ -83,14 +83,14 @@ const ItemInfo = () => {
 
   const addToCardBtnHandler = () => {
     if (countProduct > 0 && !isInCard(product.id)) {
-      addingProduct(product);
+      addProduct(product);
     } else {
       countProductChange(parseInt(product.id));
     }
     changeColorIsBlack();
   };
   const removeFromCardBtnHandler = () => {
-    removingProduct(product.id);
+    removeProduct(product.id);
   };
   const showCountOfItemHandler = () => {
     const [singleProduct] = cardProducts.filter(
@@ -111,7 +111,7 @@ const ItemInfo = () => {
           <FiChevronLeft />
         </Link>
         <Link key="2" to="/card" onClick={changeColorIsBlack}>
-          <span className="cardcunter">{totalCounte}</span>
+          <span className="cardcunter">{totalCount}</span>
           <BiShoppingBag />
         </Link>
       </header>
@@ -182,7 +182,7 @@ const ItemInfo = () => {
             <div className="add-card-count">
               <span
                 onClick={() => {
-                  removingProductCount();
+                  removeProductCount();
                   removeFromCardBtnHandler(product.id);
                 }}
               >
@@ -191,7 +191,7 @@ const ItemInfo = () => {
               <h3>{showCountOfItemHandler()}</h3>
               <span
                 onClick={() => {
-                  addingProductCount();
+                  addProductCount();
                   removeFromCardBtnHandler(product.id);
                 }}
               >
