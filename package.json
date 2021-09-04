@@ -2,7 +2,7 @@
   "name": "headphones-models",
   "version": "0.1.0",
   "private": true,
-  "homepage": "headphonemarket.i3o.ir",
+  "homepage": "demo2.i3o.ir",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
