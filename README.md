@@ -1,4 +1,4 @@
 EISA REZAEI 1400/5/14
 
-model is from https://dribbble.com/
+Model is from https://dribbble.com/shots/16153321-E-Commerce-Mobile-App
 ![drawing](./src/model.jpeg)
