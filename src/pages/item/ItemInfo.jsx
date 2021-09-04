@@ -30,13 +30,15 @@ const ItemInfo = () => {
   //adding to card
   const {
     countProduct,
-    addingProductCount,
-    removingProductCount,
-    removingProduct,
-    addingProduct,
+    addProductCount,
+    removeProductCount,
+    removeProduct,
+    addProduct,
     countProductChange,
-    productCountReSet,
     isInCard,
+    cardProducts,
+    productCountReSet,
+    totalCount,
   } = useAddToCard();
 
   // states
@@ -81,17 +83,25 @@ const ItemInfo = () => {
 
   const addToCardBtnHandler = () => {
     if (countProduct > 0 && !isInCard(product.id)) {
-      addingProduct(product);
+      addProduct(product);
     } else {
       countProductChange(parseInt(product.id));
     }
     changeColorIsBlack();
-    productCountReSet(0);
   };
   const removeFromCardBtnHandler = () => {
-    removingProduct(product.id);
+    removeProduct(product.id);
   };
-
+  const showCountOfItemHandler = () => {
+    const [singleProduct] = cardProducts.filter(
+      (oneProduct) => oneProduct.id === product.id
+    );
+    if (isInCard(product.id)) {
+      return singleProduct.count;
+    } else {
+      return countProduct;
+    }
+  };
   //component
 
   return (
@@ -101,7 +111,7 @@ const ItemInfo = () => {
           <FiChevronLeft />
         </Link>
         <Link key="2" to="/card" onClick={changeColorIsBlack}>
-          <span className="cardcunter">{countProduct}</span>
+          <span className="cardcunter">{totalCount}</span>
           <BiShoppingBag />
         </Link>
       </header>
@@ -168,13 +178,23 @@ const ItemInfo = () => {
         <div className="item-price-card">
           <h4>price</h4>
           <div className="item-addcard-price">
-            <h2>{price} $</h2>
+            <h2>$ {price} </h2>
             <div className="add-card-count">
-              <span onClick={removingProductCount}>
+              <span
+                onClick={() => {
+                  removeProductCount();
+                  removeFromCardBtnHandler(product.id);
+                }}
+              >
                 <BiMinus />
               </span>
-              <h3>{countProduct}</h3>
-              <span onClick={addingProductCount}>
+              <h3>{showCountOfItemHandler()}</h3>
+              <span
+                onClick={() => {
+                  addProductCount();
+                  removeFromCardBtnHandler(product.id);
+                }}
+              >
                 <BiPlus />
               </span>
             </div>
@@ -182,16 +202,23 @@ const ItemInfo = () => {
         </div>
         <div className="item-btn-container">
           <button
-            className={isInCard(product.id) ? `items-btn focused` : `items-btn`}
+            className={
+              isInCard(product.id) && countProduct > 0
+                ? `items-btn focused`
+                : `items-btn`
+            }
             onClick={() => {
-              if (!isInCard(product.id)) {
+              if (!isInCard(product.id) && countProduct !== 0) {
                 addToCardBtnHandler();
               } else {
                 removeFromCardBtnHandler(product.id);
+                productCountReSet(0);
               }
             }}
           >
-            {isInCard(product.id) ? `remove from card` : `add to card`}
+            {isInCard(product.id) && countProduct > 0
+              ? `remove from card`
+              : `add to card`}
           </button>
         </div>
       </div>

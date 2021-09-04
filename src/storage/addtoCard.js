@@ -5,13 +5,14 @@ import { useContext, useState, createContext, useEffect } from "react";
 const AddToCardCtx = createContext({
   countProduct: {},
   cardProducts: [],
-  addingProductCount: (product) => {},
-  removingProductCount: (productId) => {},
-  removingProduct: (productId) => {},
-  addingProduct: (product) => {},
+  addProductCount: (product) => {},
+  removeProductCount: (productId) => {},
+  removeProduct: (productId) => {},
+  addProduct: (product) => {},
   isInCard: (productId) => {},
   countProductChange: (productId) => {},
   productCountReSet: (number) => {},
+  totalCount: {},
 });
 
 //context provider component
@@ -33,6 +34,7 @@ const AddtoCardCtxProvider = ({ children }) => {
   // states
   const [productCount, setProductCount] = useState(0);
   const [addedProduct, setAddedProduct] = useState(getLocalStorge());
+  const [totalCount, setTotalCount] = useState(0);
 
   const countProductChange = (productId) => {
     const product = addedProduct.filter((product) => product.id === productId);
@@ -46,24 +48,24 @@ const AddtoCardCtxProvider = ({ children }) => {
   }, [addedProduct, countProductChange.newProduct]);
 
   //adding count func
-  const addingProductCountHandler = () => {
+  const addProductCountHandler = () => {
     setProductCount(productCount + 1);
   };
 
   //removing count func
-  const removingProductCountHandler = () => {
+  const removeProductCountHandler = () => {
     if (productCount > 0) {
       return setProductCount(productCount - 1);
     }
   };
   //adding func
-  const removingProductHanlder = (productId) => {
+  const removeProductHanlder = (productId) => {
     setAddedProduct((prev) => {
       return prev.filter((product) => product.id !== productId);
     });
   };
   //removing func
-  const addingProductHanlder = (product) => {
+  const addProductHanlder = (product) => {
     setAddedProduct((prev) => {
       return prev.concat({ ...product, count: productCount });
     });
@@ -77,17 +79,22 @@ const AddtoCardCtxProvider = ({ children }) => {
     return setProductCount(value);
   };
 
+  const setTotalCountHandler = (value) => {
+    setTotalCount(value);
+  };
   //context
   const context = {
     countProduct: productCount,
-    addingProductCount: addingProductCountHandler,
-    removingProductCount: removingProductCountHandler,
-    removingProduct: removingProductHanlder,
-    addingProduct: addingProductHanlder,
+    addProductCount: addProductCountHandler,
+    removeProductCount: removeProductCountHandler,
+    removeProduct: removeProductHanlder,
+    addProduct: addProductHanlder,
     isInCard: isInCardHandler,
     cardProducts: addedProduct,
     productCountReSet: reSetProductCount,
     countProductChange: countProductChange,
+    setTotalCount: setTotalCountHandler,
+    totalCount: totalCount,
   };
 
   // jsx
