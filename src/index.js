@@ -4,6 +4,7 @@ import App from "./App";
 import AddtoCardCtxProvider from "./storage/addtoCard";
 import AddToLikesCtxProvider from "./storage/addToLikes";
 import ColorChangeCtxProvider from "./storage/colorChange";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 ReactDOM.render(
   <AddtoCardCtxProvider>
@@ -19,3 +20,5 @@ ReactDOM.render(
   </AddtoCardCtxProvider>,
   document.getElementById("root")
 );
+
+serviceWorkerRegistration.register();

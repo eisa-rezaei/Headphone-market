@@ -35,9 +35,13 @@ body {
   border-radius: 50px;
   transition: all 0.2s linear;
   text-transform: none;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-family: "Changa", sans-serif;
   user-select: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+input {
+  font-family: "Changa", sans-serif;
 }
 .container:hover {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
@@ -58,12 +62,16 @@ body {
     background-image: none;
   }
   .container {
-    margin: 0 auto !important;
+    min-width: 100vw;
+    min-height: 100vh;
+    justify-content: flex-start;
+    margin: 0 auto;
   }
   .container:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0) !important;
   }
   .pages-container {
+    min-height: 100vh;
     border-radius: unset;
   }
 }

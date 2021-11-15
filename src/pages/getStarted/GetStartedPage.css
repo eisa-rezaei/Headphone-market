@@ -52,4 +52,7 @@
   box-shadow: 0 5px 20px 2px #4af2ea88;
 }
 @media only screen and (max-width: 600px) {
+  .getstarted-page {
+    min-height: 100vh;
+  }
 }
